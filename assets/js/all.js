@@ -11,3 +11,8 @@ $(function(){
                 $('b', this).toggleClass("caret caret-up");                
             });
     });
+$(document).ready(function() {
+var Category=['Food','Entertainment','Electronics'];
+   // alert(Category[0]);
+
+});
