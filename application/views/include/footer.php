@@ -1,11 +1,51 @@
 <div class="row clearfix">
-    <div class="col-md-12 column">
-        <div class="jumbotron footer">
-            <a href="<?= base_url() ?>welcome/contact_us">Contact us</a>
-            <p>
-                Nice way to sale and purchase goods 
-                
-            </p>
+    <div class="f-holder">
+        <h1>Heading</h1>
+        <div class="holder">
+            <div class="wrap">
+                <h2>category</h2>
+                <ul>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    
+                </ul>
+            </div>
+            <div class="wrap">
+                <h2>category</h2>
+                <ul>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    
+                </ul>
+            </div>     
+            <div class="wrap">
+                <h2>category</h2>
+                <ul>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    
+                </ul>
+            </div>
+            <div class="wrap">
+                <h2>category</h2>
+                <ul>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    <li><a href="#"> link</a></li>
+                    
+                </ul>
+            </div>     
         </div>
     </div>
 </div>

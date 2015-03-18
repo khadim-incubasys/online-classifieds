@@ -8,7 +8,7 @@
             </h2>
             <div class="image-wrap">
                 <a href="#" >
-                    <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop2.jpg'; ?>" alt="" class="img-responsive">
+                    <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop.jpg'; ?>" alt="" class="img-responsive">
                 </a>
             </div>
             <p>

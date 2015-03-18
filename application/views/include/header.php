@@ -24,9 +24,11 @@
             <div class="row clearfix">
                 <div class="col-md-12 column">
                     <div class="jumbotron header">
-                        <ul class="nav navbar-nav navbar-right">
+                        
+                        <div class="top-bar">
+                            <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="<?= base_url() ?>user/settings" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'me.jpg' ?>" alt=""><strong>Khadim Raath </strong></a>
+                                <a href="<?= base_url() ?>user/settings" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'laptop.jpg' ?>" alt=""><strong class="user-name">Khadim Raath </strong></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="<?= base_url() ?>user/me">me</a>
@@ -45,19 +47,24 @@
                                 </ul>
                             </li>
                         </ul>
-                        <h1>
-                            <a href="<?= base_url() ?>welcome">
-                            Online Classifieds
-                            </a>
-                        </h1>
-                        <p>
-                            Nice way to sale and purchase goods 
-                        </p>
-                        <ul class="nav navbar-nav new-ad">
-                            <li>
-                                <a class="new-link" href="#"><span class="plus-icon">+</span> Submit Ad</a>
-                            </li>
-                        </ul>
+                        </div>
+                        
+                        <div class="holder">
+                                <h1>
+                               <a href="<?= base_url() ?>welcome">
+                               Online Classifieds
+                               </a>
+                           </h1>
+                           <p>
+                               Nice way to sale and purchase goods 
+                           </p>
+                           <ul class="nav navbar-nav new-ad">
+                               <li>
+                                   <a class="new-link" href="#"><span class="plus-icon">+</span> Submit Ad</a>
+                               </li>
+                           </ul>
+                        </div>
+                       
 
                     </div>
                     <nav class="navbar navbar-default" role="navigation">
