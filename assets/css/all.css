@@ -91,17 +91,18 @@ body{
 }
 .new-ad{
     text-decoration-color: #ec971f;
-    background: #356635;
+    background:honeydew; //#356635;
     text-decoration-style: double;
     width: 400px;
     margin-left: 0;
     text-align: center;
     margin-left: 30%;
     text-align: center;
+    font-size: 300;
 }
 .new-link{
-    color: #ec971f;
-    font-size: larger;
+    color: green;
+    font-size: x-large;
 }
 .f-holder{
     overflow: hidden;
