@@ -79,7 +79,7 @@
                         <span class="title">title</span>
                         <span>this is text area</span>
                     </div>
-                    <a class="buy" href="#">buy Product</a>
+                    <a class="buy" href="#">Buy</a>
                     
                 </div>
                  <div class="block">

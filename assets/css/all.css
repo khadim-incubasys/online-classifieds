@@ -8,6 +8,8 @@ body{
   background-color: #ffffff;
   padding: 0 20px;
   overflow: hidden;
+  margin-left: 7%;
+  margin-right: 7%;
     
 }
 .header{
@@ -19,7 +21,9 @@ body{
     
 }
 .container{
-    width: 80% !important;
+    width: 100% !important;
+    padding-left:0; 
+        padding-right: 0;
 }
 .jumbotron.header .top-bar{
     margin: 0 0 10px;
@@ -159,7 +163,7 @@ body{
 .main-wrap .aside{
     float: right;
     width: 30%;
-    background: #ccc;
+    background: burlywood;//#ccc;
     text-align: center;
     border-left: 1px solid #ccc;
     margin-right: -20px;
