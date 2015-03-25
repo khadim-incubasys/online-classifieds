@@ -346,6 +346,9 @@ body{
     margin-top:1%;
     margin-left: 20%; 
 }
+.navbar-form{
+    margin: 0 17%;
+}
 .navbar-form .form-control{
     // width: 30px;
 }
@@ -506,4 +509,10 @@ body{
 #custom-btn {
 border-radius: 0px;
 width: 50%;
+}
+.btn {
+border-radius: 0px;
+}
+.btn-primary {
+    width: 33%;
 }

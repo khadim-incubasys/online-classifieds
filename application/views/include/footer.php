@@ -9,6 +9,8 @@
                     <li><a href="<?= base_url();?>welcome/about_us"> About</a></li>
                     <li><a href="#"> Blog</a></li>
                     <li><a href="#"> Career</a></li>
+                    <li><a href="#"> Privacy Policy</a></li>
+                    <li><a href="#"> Terms and Conditions</a></li>
                     <li><a href="<?= base_url();?>welcome/contact_us"> Contact</a></li>
                     
                 </ul>
@@ -28,7 +30,7 @@
                 <h2>Follow Us</h2>
                 <ul>
                     <li><a href="#">  <img class="follw-img" src="<?= base_url() . 'assets/images/twitter.png'; ?>" alt="" class="img-responsive"></a></li>
-                    <li><a href="#"> <img class="follw-img" src="<?= base_url() . 'assets/images/fb.png'; ?>" alt="" class="img-responsive"></a></li>
+                    <li><a href="https://www.facebook.com/khadim.Raath"> <img class="follw-img" src="<?= base_url() . 'assets/images/fb.png'; ?>" alt="" class="img-responsive"></a></li>
                     <li><a href="#"> <img class="follw-img" src="<?= base_url() . 'assets/images/google.png'; ?>" alt="" class="img-responsive"></a></li>
                     <li><a href="#"> <img class="follw-img" src="<?= base_url() . 'assets/images/linkedin.png'; ?>" alt="" class="img-responsive"></a></li>
                     

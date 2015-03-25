@@ -37,9 +37,13 @@ function post_add(item,base_url){
 }
 $(document).ready(function () {
     var base_url = $('#base_url').val();
+    $("#form").parsley({trigger: "change"});
     
-    var category = ['Laptops', 'Mobiles', 'Cats', 'Dogs', 'LEDs', 'Assesories-m', 'Asseories-l'];
-    var location = ['Lahore', 'Islamabad', 'Karachi', 'Peshawar', 'Multan', 'Bahawalnagar', 'Kasur']
+    
+    
+    ///////////////////////////////////////
+    var category = ['Laptops', 'Mobiles', 'Cats', 'Dogs', 'LEDs','Electronics', 'Assesories-m', 'Asseories-l'];
+    var location = ['Lahore', 'Islamabad', 'Karachi', 'Peshawar', 'Multan','Faisalabad', 'Bahawalnagar', 'Kasur']
     
     var ads_array = new Array();
     ads_array[0] = new ads("Dell-3721", category[0], "Laptops.jpg", 30, location[0]);
