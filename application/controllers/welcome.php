@@ -10,12 +10,16 @@ class Welcome extends CI_Controller {
     }
 
     public function index() {
-        $data['title'] = SITE_TITLE;
-        $this->load->view('home2', $data);
+        $data['title'] = "All Advertisements";
+        $this->load->view('advertisement/index', $data);
     }
     public function contact_us(){
         $data['title'] = SITE_TITLE;
         $this->load->view('contact-us', $data);
+    }
+    public function about_us(){
+        $data['title'] = SITE_TITLE;
+        $this->load->view('about-us', $data);
     }
 
 }

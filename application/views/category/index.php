@@ -3,18 +3,18 @@
 <div class="wrapper">
     <div class="main-wrap">
         <div class="aside">
-            <?php $this->load->view('advertisement/power_ads'); ?>
+                <?php $this->load->view('advertisement/power_ads'); ?>
         </div>
         <div class="main-content">
-           <h2><?= $title; ?></h2>
+            <h2><?= $title; ?></h2>
             <div class="holder">
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">All Lapgops-Dell Inspiron series</span>
+                        <span class="title">All Lapgops-Dell Inspiron series</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -22,10 +22,10 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -33,10 +33,10 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'mobile.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -44,10 +44,10 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -55,10 +55,10 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'router.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -66,10 +66,10 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -77,10 +77,10 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'led.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
@@ -88,18 +88,18 @@
                 <div class="block">
                     <div class="image">
                         <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                    </div>
+                        </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
-                            <span class="title">title</span>
+                        <span class="title">title</span>
                         </a>
                         <span>this is text area</span>
                     </div>
                 </div>
-
+               
             </div>
         </div>
-
+       
     </div>
     <div class="pagination">
         <ul>

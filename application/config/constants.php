@@ -41,3 +41,4 @@ define('SITE_TITLE','Online Classifieds');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */\
 define("UPLOAD_PATH", "assets/uploads/");
+define("APP_TITLE", "Online Classifieds");

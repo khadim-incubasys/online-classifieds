@@ -16,19 +16,21 @@
 
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?= base_url(); ?>assets/js/parsley.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/all.js"></script>
     </head>
 
     <body>
+        <input type="hidden" id="base_url" name="base_url" value="<?= base_url(); ?>" />
         <div class="container">
-            <div class="row clearfix">
+            <div class="row clearfix h-holder">
                 <div class="col-md-12 column">
                     <div class="jumbotron header">
                         
                         <div class="top-bar">
                             <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="<?= base_url() ?>user/settings" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'laptop.jpg' ?>" alt=""><strong class="user-name">Khadim Raath </strong></a>
+                                <a href="<?= base_url() ?>user/me" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'me.jpg' ?>" alt=""><strong class="user-name">Khadim Raath </strong></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="<?= base_url() ?>user/me">me</a>
@@ -80,37 +82,31 @@
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                            <form class="navbar-form navbar-left" role="search">
+                            <div class="navbar-form navbar-left" role="search">
                                 <div class="form-group form-inline">
                                     <label for="below-range">Price Range:</label>
-                                    <input type="number" class="form-control price-range" name="below-range" />
+                                    <input type="number" class="form-control price-range" placeholder="From" name="below-range" />
                                     --
-                                    <input type="number" name="up-range" class="form-control price-range"/>
+                                    <input type="number" name="up-range" placeholder="To" class="form-control price-range"/>
                                 </div>      
                                 <div class="form-group">
                                     <label for="location">Location:</label>
                                     <select name="location" id="select-location" class="form-control form-inline">
-                                        <option value="1">Lahore</option>
-                                        <option value="2">Islamabad</option>
-                                        <option value="3">Peshawar</option>
-                                        <option value="4">Karachi</option>
+                                        <option value="">Select</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category:</label>
                                     <select name="category" id="select-category" class="form-control form-inline">
-                                        <option value="1">Laptops</option>
-                                        <option value="2">Mobiles</option>
-                                        <option value="3">Accessories</option>
-                                        <option value="4">Cats</option>
+                                        <option value="">Select</option>
+                                        
                                     </select>
                                 </div>
-
                                 <div class="form-group">
-                                    <input type="text" name="search-text" class="form-control search-text">
+                                    <input type="text" name="search-text" placeholder="Search Ad here" class="form-control search-text">
                                 </div>
-                                <button type="submit" class="btn btn-default">Search</button>
-                            </form>
+                                <button type="s" class="btn btn-default search-btn" >Search</button>
+                            </div>
 
                         </div>
 

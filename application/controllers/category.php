@@ -10,10 +10,10 @@ class Category extends CI_Controller {
     }
     public function index() {
         $data['title']="cat";
-        $this->load->view('category/category',$data);
+        $this->load->view('category/index',$data);
     }
-    public function view($category) {
+    public function view_all($category) {
         $data['title']=$category;
-        $this->load->view('category/category',$data);
+        $this->load->view('advertisement/index',$data);
     }
 }
