@@ -46,11 +46,11 @@ $(document).ready(function () {
     var location = ['Lahore', 'Islamabad', 'Karachi', 'Peshawar', 'Multan','Faisalabad', 'Bahawalnagar', 'Kasur']
     
     var ads_array = new Array();
-    ads_array[0] = new ads("Dell-3721", category[0], "Laptops.jpg", 30, location[0]);
-    ads_array[1] = new ads("Samsung-s3", category[1], "Mobiles.jpg", 30, location[1]);
-    ads_array[2] = new ads("Italian-Billi", category[2], "Cats.jpg", 30, location[2]);
-    ads_array[3] = new ads("Russian-Kutta", category[3], "Dogs.jpg", 30, location[3]);
-    ads_array[4] = new ads("Led-4100", category[4], "LEDs.jpg", 30, location[4]);
+    ads_array[0] = new ads("Dell-3721", category[0], "laptop.jpg", 30, location[0]);
+    ads_array[1] = new ads("Samsung-s3", category[1], "mobile.jpg", 30, location[1]);
+    ads_array[2] = new ads("Italian-Billi", category[2], "cat.jpg", 30, location[2]);
+    ads_array[3] = new ads("Russian-Kutta", category[3], "dog.jpg", 30, location[3]);
+    ads_array[4] = new ads("Led-4100", category[4], "led.jpg", 30, location[4]);
 
     for (i = 0; i < ads_array.length; i++) {
         var item = ads_array[i];

@@ -234,15 +234,15 @@ body{
     vertical-align: top;
     margin: 0 0 30px;
     text-align: center;
-    padding: 0 20px 0;
+    padding: 0 25px 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border-left: 1px solid #999;
 }
 .main-wrap .main-content .block .image{
-    width:150px;
-    height: 150px;
+    width:200px;
+    height: 200px;
 }
 .main-wrap .main-content .block .buy{
     padding: 8px 20px;
@@ -296,9 +296,7 @@ body{
     font-weight: bold;
     text-transform: capitalize;
 }
-.main-wrap .aside .block .text-wrap .title{
-    text-align: left;
-}
+
 #bs-example-navbar-collapse-1 form{
     width: 100%;
 }
@@ -516,3 +514,19 @@ border-radius: 0px;
 .btn-primary {
     width: 33%;
 }
+
+/////////////
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background:#000 url(http://dbwebb.se/img/loader.gif) no-repeat scroll center center;
+}
+#lightbox {
+    position: fixed;
+    z-index: 999;
+/*}///////////////////////*/

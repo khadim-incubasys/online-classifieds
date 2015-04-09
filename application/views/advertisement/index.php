@@ -10,7 +10,7 @@
             <div class="holder ads">
                 <div class="block">
                     <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'router.jpg'; ?>" alt="" class="img-responsive">
+                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'charger.jpg'; ?>" alt="" class="img-responsive">
                     </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>advertisement/view/1">

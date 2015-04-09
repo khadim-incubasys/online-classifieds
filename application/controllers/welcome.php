@@ -21,6 +21,10 @@ class Welcome extends CI_Controller {
         $data['title'] = SITE_TITLE;
         $this->load->view('about-us', $data);
     }
+     public function test() {
+        $data['title'] = "test page";
+        $this->load->view('test', $data);
+    }
 
 }
 

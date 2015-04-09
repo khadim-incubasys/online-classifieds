@@ -10,7 +10,7 @@
             <div class="holder">
                 <div class="block">
                     <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
+                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptops.jpg'; ?>" alt="" class="img-responsive">
                     </div>
                     <div class="text-wrap">
                         <a href="<?= base_url() ?>category/view_all/laptop">
