@@ -9,7 +9,7 @@ class Category extends CI_Controller {
         $this->load->helper('url');
     }
     public function index() {
-        $data['title']="cat";
+        $data['title']="All categories";
         $this->load->view('category/index',$data);
     }
     public function view_all($category) {
