@@ -57,6 +57,9 @@ body{
     font-size: 35px;
     line-height:37px;
 }
+.user-name{
+    color: #fff;
+}
 .jumbotron{
     margin: 0;
     padding: 0;
@@ -209,8 +212,8 @@ body{
     // margin-right: -20px;
 }
 .sidebar-header{
-    margin: 2% 14%;
-    color:  #fff;
+    margin: 10% 10%;
+    color:  #0FA7B4;
     /*/ font-size:xx-large;*/
 }
 .user-header{
@@ -330,8 +333,7 @@ body{
     border-radius: 0;
 }
 .form,.form-user {
-    margin-top:5%;
-    margin:5% 10%;
+    margin:0% 10%;
 }
 .form-user{
     margin-left: 20%;
@@ -341,8 +343,7 @@ body{
     margin-left: 10%;
 }
 .form-header-user{
-    margin-top:1%;
-    margin-left: 20%; 
+    margin: 3% 20%;
 }
 .navbar-form{
     margin: 0 5%;
@@ -531,4 +532,17 @@ border-radius: 0px;
 #lightbox {
     position: fixed;
     z-index: 999;
+}
 /*}///////////////////////*/
+
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}

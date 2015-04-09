@@ -11,6 +11,22 @@ $(function () {
                 $('b', this).toggleClass("caret caret-up");
             });
 });
+
+ $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            });
+    });
+    
+
 function ads() {
     this.title = arguments[0];
     this.category = arguments[1];

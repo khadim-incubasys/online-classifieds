@@ -28,47 +28,50 @@
             <div class="row clearfix h-holder">
                 <div class="col-md-12 column">
                     <div class="jumbotron header">
-                        
+
                         <div class="top-bar">
                             <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="<?= base_url() ?>user/me" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'me.jpg' ?>" alt=""><strong class="user-name">Khadim Raath </strong></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="<?= base_url() ?>user/me">me</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url() ?>user/my_ads">My ADs</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url() ?>user/settings">Settings</a>
-                                    </li>
-                                    <li class="divider">
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url() ?>user/logout">Logout</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'me.jpg' ?>" alt=""><strong class="user-name">Khadim Raath </strong> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="<?= base_url() ?>user/me">me</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url() ?>user/my_ads">My ADs</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url() ?>user/settings">Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url() ?>user/change_password">Change Password</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="<?= base_url() ?>user/logout">Logout</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
                         </div>
-                        
+
                         <div class="holder">
-                                <h1>
-                               <a href="<?= base_url() ?>welcome">
-                               Online Classifieds
-                               </a>
-                           </h1>
-                           <p>
-                               Nice way to sale and purchase goods 
-                           </p>
-                           <ul class="nav navbar-nav new-ad">
-                               <li>
-                                   <a class="new-link" href="#"><span class="plus-icon">+</span> Submit Ad</a>
-                               </li>
-                           </ul>
+                            <h1>
+                                <a href="<?= base_url() ?>welcome">
+                                    Online Classifieds
+                                </a>
+                            </h1>
+                            <p>
+                                Nice way to sale and purchase goods 
+                            </p>
+                            <ul class="nav navbar-nav new-ad">
+                                <li>
+                                    <a class="new-link" href="#"><span class="plus-icon">+</span> Submit Ad</a>
+                                </li>
+                            </ul>
                         </div>
-                       
+
 
                     </div>
                     <nav class="navbar navbar-default" role="navigation">
@@ -101,7 +104,7 @@
                                     <label for="category">Category:</label>
                                     <select name="category" id="select-category" class="form-control form-inline">
                                         <option value="">Select</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="form-group">

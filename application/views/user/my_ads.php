@@ -4,8 +4,8 @@
     <div class="row clearfix">
         <div class="main-wrap">
             <div class="user-content">
-                <h2 class="form-header-user">Change Password</h2>
-                <form id="contact" action="#" method="post" class="form-user" role="form">
+                <h2 class="form-header-user">My ADs</h2>
+                <div id="contact" class="form-user" role="form">
                     <div class="row">
                         <div class="col-xs-8 col-md-10 form-group">
                             <input class="form-control" id="password" name="password" placeholder="0ld Password" type="password" required autofocus />
@@ -28,8 +28,7 @@
                             </form>
                         </div>
                     </div>
-
-                </form>
+                </div>
             </div>
             <?php $this->load->view('user/side-bar'); ?>
         </div>
