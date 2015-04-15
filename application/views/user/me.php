@@ -7,8 +7,21 @@
                 <h2 class="form-header-user">ME</h2>
                 <div id="contact" class="form-user" role="form">
                     <div class="row">
-                        <div class="col-xs-8 col-md-10 form-group">
-                            <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt="" class="img-responsive">
+                        <div class="col-xs-6 form-group">
+
+                            <ul class="demo-2 effect">
+                                <li>
+                                    <input type="button" class="btn-primary btn upload" value="upload" name="upload profile" />
+                                </li>
+                                <li><img class="dp-img img-responsive"  src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt=""/></li>
+                            </ul>
+
+
+<!--                            <img class="dp-img img-responsive" src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt="" >-->
+                        </div>
+                        <div class="col-xs-6 form-group">
+                            <h4> Khadim Raath</h4>
+                            <h5> Khadim.raath@incubasys.com </h5>
                         </div>
                     </div>
                     <div class="row">

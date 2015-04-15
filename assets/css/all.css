@@ -170,6 +170,7 @@ body{
 }
 .main-wrap .main-content{
     overflow: hidden;
+    padding: 10px 10px 25px;
 }
 .main-wrap .aside{
     float: right;
@@ -251,7 +252,8 @@ body{
 }
 
 .main-wrap .main-content .block .image{
-    width:200px;
+   //margin-left: -20px;
+    width: 100%;
     height: 200px;
 }
 .main-wrap .main-content .block .buy{
@@ -502,9 +504,8 @@ body{
     margin-left: 30%;
 }
 .description-view{
-    margin-top: 8%;
-    margin-bottom: 8%;
-    margin-left: 3%;
+    margin: 8% 3%;
+    float: left;
 }
 .about-us{
     margin: 2% 10%;
@@ -562,4 +563,78 @@ h2 {
 .main-wrap .aside .block .buy:hover
 {
     opacity: 0.6;
+}
+
+.dp-img{
+    border: 1px solid #ddd;
+    border-radius: 5px; 
+    box-shadow: 0 0 1px 1px #e8e8e8;
+    width: 100%;
+}
+
+.demo-2 {
+    position:relative;
+    width:100%;
+    height:190px;
+    overflow:hidden;
+    float:left;
+    background-color:rgba(26,76,110,0.5);
+}
+.demo-2  li
+{
+    list-style: none;
+    padding:0;
+    width: 100%;
+}
+.demo-2 btn {
+    color:#fff;
+    padding:10px;
+    left:-20px;
+    top:20px;
+    position:relative;
+}
+.demo-2 btn {
+    font-size:20px;
+    line-height:24px;
+    margin:0;
+    font-family:'Lato';
+}
+.effect img {
+    position:absolute;
+    left:0;
+    bottom:0;
+    cursor:pointer;
+    -webkit-transition:bottom .3s ease-in-out;
+    -moz-transition:bottom .3s ease-in-out;
+    -o-transition:bottom .3s ease-in-out;
+    transition:bottom .3s ease-in-out;
+}
+.effect img.dp-img:hover {
+    bottom:-66px;
+    padding-top:60px;
+    border-top: 0px;
+    box-shadow: 0 0 0 0;
+}
+h2.zero,p.zero {
+    margin:0;
+    padding:0;
+}
+
+input[type="button"].upload
+{
+    font-size: 28px;
+    width: 200px;
+    margin: 7px 0 0;
+}
+
+.thumb img
+{
+    width: 31.9%;
+    height: 150px;
+    float: left;
+    margin: 13px 3px 0;
+}
+.row .holder
+{
+    
 }
