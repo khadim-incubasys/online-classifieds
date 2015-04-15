@@ -13,32 +13,21 @@
                                 <li>
                                     <input type="button" class="btn-primary btn upload" value="upload" name="upload profile" />
                                 </li>
-                                <li><img class="dp-img img-responsive"  src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt=""/></li>
+                                <li><img class="dp-img img-responsive"  src="<?= base_url() . UPLOAD_PATH . 'me.jpg'; ?>" alt=""/></li>
                             </ul>
 
 
 <!--                            <img class="dp-img img-responsive" src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt="" >-->
                         </div>
-                        <div class="col-xs-6 form-group">
-                            <h4> Khadim Raath</h4>
+                      
+                            <h2> Khadim Raath</h2>
                             <h5> Khadim.raath@incubasys.com </h5>
-                        </div>
+                            <h5>030012346789</h5>
+                     
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6 col-md-10 form-group">
-                            Line1
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6 col-md-10 form-group">
-                            Line2
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6 col-md-10 form-group">
-                            Line2
-                        </div>
-                    </div>
+                    
+                    <h5>Lahore , Pakistan</h5>
+                    <h5>Kamran Block Allama Iqbal Town Lahore</h5>
                     <br />
                     <div class="row">
                         <div class="col-xs-6 col-md-10 form-group">

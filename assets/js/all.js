@@ -121,4 +121,12 @@ $(document).ready(function () {
         }
            
     });
+    ///////////// print 2 /////////
+   $(".thumb img").on("click",function(){
+       var src=$(this).attr("src");
+      //alert(src); 
+      $("#ad-img-view").attr("src",src);
+   });
+    
+    ///////////////
 });
