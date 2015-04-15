@@ -87,7 +87,7 @@
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                            <div class="navbar-form navbar-left" role="search">
+                            <div class="navbar-form navbar" role="search">
                                 <div class="form-group form-inline">
                                     <label for="below-range">Price Range:</label>
                                     <input type="number" class="form-control price-range" placeholder="From" name="below-range" />

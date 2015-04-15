@@ -165,7 +165,8 @@ body{
     text-align: center;
     background: #3A3A4C;
     color: #fff;
-    padding: 15px 0;
+    padding: 20px 0px;
+    width: 100%;
 }
 .main-wrap .main-content{
     overflow: hidden;
@@ -232,17 +233,23 @@ body{
     margin-bottom: 14px;
 }
 .main-wrap .main-content .holder .block{
-    width:23.5%;
+    width: 23.5%;
     display: inline-block;
     vertical-align: top;
-    margin: 0 0 30px;
     text-align: center;
-    padding: 0 25px 0;
+    padding: 10px 25px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    border-left: 1px solid #999;
+    border: 1px solid #999;
+    margin: 0 0 10px 6px;
+    border-radius: 5px;
 }
+.main-wrap .main-content .holder .block:hover
+{
+    box-shadow: 0px 0px 1px 1px #333;
+}
+
 .main-wrap .main-content .block .image{
     width:200px;
     height: 200px;
@@ -347,8 +354,8 @@ body{
 }
 .navbar-form{
     margin: 0 5%;
-    
-   
+
+
 }
 .navbar-form .form-control{
     // width: 30px;
@@ -508,11 +515,11 @@ body{
 
 //////////
 #custom-btn {
-border-radius: 0px;
-width: 50%;
+    border-radius: 0px;
+    width: 50%;
 }
 .btn {
-border-radius: 0px;
+    border-radius: 0px;
 }
 .btn-primary {
     width: 33%;
@@ -541,8 +548,18 @@ border-radius: 0px;
     border-left: 4px solid rgba(0, 0, 0, 0);
     border-right: 4px solid rgba(0, 0, 0, 0);
     border-bottom: 4px solid;
-    
+
     display: inline-block;
     margin-left: 2px;
     vertical-align: middle;
+}
+
+h2 {
+    font-size: 30px;
+    padding-left: 10px;
+}
+.main-wrap .main-content .block .buy:hover,
+.main-wrap .aside .block .buy:hover
+{
+    opacity: 0.6;
 }
