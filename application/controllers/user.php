@@ -30,7 +30,11 @@ class User extends CI_Controller {
     }
     public function signup() {
         $data['title'] = "signup";
-        $this->load->view('user/create', $data);
+        $email_data['email']="khadim.raath@incubasys.com";
+        $email_data['name']="khadim Raath";
+        email_test($email_data);
+        die('sdlkks');
+        //$this->load->view('user/create', $data);
     }
     public function logout() {
         $data['title'] = "Logut";

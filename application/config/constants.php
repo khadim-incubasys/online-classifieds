@@ -42,3 +42,6 @@ define('SITE_TITLE','Online Classifieds');
 /* Location: ./application/config/constants.php */\
 define("UPLOAD_PATH", "assets/uploads/");
 define("APP_TITLE", "Online Classifieds");
+define('ADMIN_EMAIL', 'no-reply@incubasys.com');
+define('ADMIN_EMAIL_PASSWORD', 'no-rep@$$');
+define('ADMIN_NAME', 'No-reply');

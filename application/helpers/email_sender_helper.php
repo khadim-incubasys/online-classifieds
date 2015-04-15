@@ -14,7 +14,7 @@ function mail_me($email_data) {
 //    define('AMQP_DEBUG', true);
 
     $exchange = 'emailer';
-    $queue = 'mpvi_emails';
+    $queue = 'classifieds_emails';
 
     $conn = new AMQPConnection(RMQHOST, RMQPORT, RMQUSER, RMQPASS, RMQVHOST);
     $ch = $conn->channel();

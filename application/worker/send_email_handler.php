@@ -4,6 +4,7 @@ require_once('PHPMailer/class.phpmailer.php');
 require_once __DIR__ . '/../libraries/vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPConnection;
+$link="application\libraries\vendor-bk\videlalvaro\php-amqplib\PhpAmqpLib\Connection\AMQPConnection";
 use PhpAmqpLib\Message\AMQPMessage;
 
 define('HOST', 'localhost');
@@ -16,7 +17,7 @@ define('VHOST', '/');
 define('AMQP_DEBUG', true);
 
 $exchange = 'router';
-$queue = 'mpvi_emails';
+$queue = 'classifieds_emails';
 $consumer_tag = 'consumer';
 
 $conn = new AMQPConnection(HOST, PORT, USER, PASS, VHOST);
@@ -82,7 +83,7 @@ function send_mail($email_data) {
 }
 
 function process_message($msg) {
-    echo "\n----Queue: mpvi_emails.......Sending email....\n";
+    echo "\n----Queue: classifieds_emails.......Sending email....\n";
     $arr = json_decode($msg->body);
     send_mail($arr);
     echo "\n--------\n";
