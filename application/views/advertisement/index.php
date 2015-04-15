@@ -21,7 +21,7 @@
                     </div>
                     <a class="buy" href="<?= base_url() ?>advertisement/buy/id">Buy</a>
                 </div>
-                
+
             </div>
         </div>
 
@@ -38,5 +38,17 @@
             <li><a href="#">Next</a></li>
         </ul>
     </div>
+    <?php
+    if ($this->router->method == "login") {
+        $this->load->view('user/login-partial');
+        ?>
+        <script>
+            $(window).load(function () {
+                $('.modal').modal('show');
+            });
+        </script>
+        <?php
+    }
+    ?>
 </div>
 <?php $this->load->view('include/footer'); ?>

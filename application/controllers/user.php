@@ -28,7 +28,7 @@ class User extends CI_Controller {
         $data['title'] = "Login";
         $this->load->view('user/login', $data);
     }
-    public function signup() {
+    public function register() {
         $data['title'] = "signup";
         $email_data['email']="khadim.raath@incubasys.com";
         $email_data['name']="khadim Raath";

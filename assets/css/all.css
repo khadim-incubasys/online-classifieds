@@ -651,3 +651,12 @@ input[type="button"].upload
 .product-info{
     margin: 2% 2%;
 }
+#enter_links a{
+    font-size: 20px;
+    color: #fff;
+    text-decoration-style:  dotted;
+}
+#devider{
+    font-size:  20px;
+    text-decoration-style: dotted;
+}
