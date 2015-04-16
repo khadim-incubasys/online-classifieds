@@ -6,6 +6,7 @@
 <script>
     $(window).load(function () {
       $('.modal').modal('show');
-    });
+      });
+    
 </script>
 <?php $this->load->view('include/footer'); ?>

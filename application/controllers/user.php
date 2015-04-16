@@ -25,8 +25,8 @@ class User extends CI_Controller {
         $this->load->view('user/me', $data);
     }
     public function login() {
-        $data['title'] = "Login";
-        $this->load->view('user/login', $data);
+       $data['title']="Advertisement";
+        $this->load->view('advertisement/index',$data);
     }
     public function register() {
         $data['title'] = "signup";

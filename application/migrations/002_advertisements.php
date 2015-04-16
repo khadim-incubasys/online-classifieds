@@ -2,10 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_users extends CI_Migration {
+class Migration_advertisements extends CI_Migration {
 
     public function up() {
-        $table = "users";
+        $table = "advertisements";
 
         $this->dbforge->add_field("id int(11) unsigned NOT NULL AUTO_INCREMENT");
         $this->dbforge->add_field("name varchar(255) NOT NULL");
@@ -29,7 +29,7 @@ class Migration_users extends CI_Migration {
     }
 
     public function down() {
-        $table = "users";
+        $table = "advertisements";
         $this->dbforge->drop_table($table);
     }
 
