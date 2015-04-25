@@ -666,3 +666,6 @@ input[type="button"].upload
   padding-right: 0px !important;
   overflow-y: scroll;
 }
+.search-text.clicked {
+    width: 322px;
+}
