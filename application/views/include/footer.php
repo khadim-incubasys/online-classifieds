@@ -43,14 +43,27 @@
 <?php
 if (!is_logged_in()) {
     $this->load->view('user/login-partial');
-}
-if ($this->router->method == "login") {
+    $this->load->view('user/register-partial');
+    if ($this->router->method == "login") {
+        ?>
+        <script>
+            $(window).load(function () {
+                $('.login-popup').modal('show');
+            });
+        </script>
+        <?php
+    } else if ($this->router->method == "register") {
+        ?>
+        <script>
+            $(window).load(function () {
+                $('.register-popup').modal('show');
+            });
+        </script>
+        <?php
+    }
     ?>
-    <script>
-        $(window).load(function() {
-            $('.modal').modal('show');
-        });
-    </script>
+
+
     <?php
 }
 ?>

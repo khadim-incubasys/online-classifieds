@@ -124,30 +124,6 @@ class MY_Model extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    /*
-     * 
-     * methods for Admin, Player,  Developer Controoler
-     * 
-     */
-
-
-
-    /*
-     * 
-     * 
-     * @param id: of record
-     * 
-     * @return : affected number of rows
-     */
-
-
-    /*
-     * 
-     * 
-     * @param id: 
-     * 
-     * @return : Count of all the records
-     */
 
     public function record_count($where_column_name = NULL, $where_column_value = NULL) {
         if ($where_column_name == NULL) {
@@ -163,24 +139,7 @@ class MY_Model extends CI_Model {
         }
     }
 
-    /*
-     *
-     *  
-     * @param where: where clause
-     * @param data: key value pair of data to be updated
-     * 
-     * @return : Count of all the records
-     */
-
-
-
-    /*
-     * 
-     * 
-     * @param where: where clause
-     * 
-     * @return : Count of all the records
-     */
+   
 
     public function findByCondition($where, $order_by = false, $group_by = false, $select = '*') {
         $this->db->select($select)
@@ -199,14 +158,7 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-    /*
-     * 
-     * 
-     * @param limit: Limit of rows per page
-     * @param start: Position index of rows to start
-     * 
-     * @return : Count of all the records
-     */
+    
 
     public function fetch_limit($limit, $start, $where_column_name = NULL, $where_column_value = NULL, $order_by = false) {
         $this->db->limit($limit, $start);
@@ -225,22 +177,7 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-    /*
-     * 
-     * 
-     * @param limit: Limit of rows per page
-     * @param start: Position index of rows to start
-     * @param ambiguous_alias_select: Select the columns from the join query, and mention table alias for any common column between tables
-     * @param table1: First table for join
-     * @param table2: Second table for join
-     * @param join_condition: Join condition between the two tables
-     * @param where_column_name: column name to be put in where clause
-     * @param where_column_value: value to be compared in that column
-     * @param direction: direction of the join, i.e. left or right
-     *   
-     * @return : All the records
-     */
-
+    
     public function fetch_join_limit($limit, $start, $ambiguous_alias_select, $table1, $table2, $join_condition, $where_column_name = NULL, $where_column_value = NULL, $direction = '', $where_second_column_name = NULL, $where_second_column_value = NULL, $is_in_query = FALSE) {
         $this->db->select($ambiguous_alias_select);
         $this->db->from($table1);
@@ -264,24 +201,7 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-    /*
-     * 
-     * 
-     * @param limit: Limit of rows per page
-     * @param start: Position index of rows to start
-     * @param ambiguous_alias_select: Select the columns from the join query, and mention table alias for any common column between tables
-     * @param table1: First table for join
-     * @param table2: Second table for join
-     * @param join_condition: Join condition between the two tables
-     * @param table3: Third table for join
-     * @param join_condition2: Join condition for the third table, either with table1 with 2, or 2 with 3, etc.
-     * @param where: where clause condition
-     * @param direction: direction of the join, i.e. left or right
-     * @param direction2: direction of the second join, i.e. left or right
-     * @param group_by: group records by a column and take their join
-     * 
-     * @return : All the records
-     */
+   
 
     public function fetch_join_triple_limit($limit, $start, $ambiguous_alias_select, $table1, $table2, $join_condition, $table3, $join_condition2, $where = null, $direction = '', $direction2 = '', $group_by = false) {
         $this->db->select($ambiguous_alias_select);
@@ -305,25 +225,7 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-    /*
-     * 
-     * 
-     * @param limit: Limit of rows per page
-     * @param start: Position index of rows to start
-     * @param ambiguous_alias_select: Select the columns from the join query, and mention table alias for any common column between tables
-     * @param table1: First table for join
-     * @param table2: Second table for join ------
-     * @param join_condition: Join condition between the two tables -- 
-     * @param table3: Third table for join -- 
-     * @param join_condition2: Join condition for the third table, either with table1 with 2, or 2 with 3, etc. ---
-     * @param where_column_name: column name to be put in where clause
-     * @param where_column_value: value to be compared in that column
-     * @param direction: direction of the join, i.e. left or right --
-     * @param direction2: direction of the second join, i.e. left or right --
-     * @param group_by: group records by a column and take their join
-     * 
-     * @return : All the records
-     */
+   
 
     public function fetch_join_multiple_limit($limit = NULL, $start = NULL, $ambiguous_alias_select, $table1, $join_array, $where = NULL, $group_by = false, $order_by = false) {
         $this->db->select($ambiguous_alias_select);
@@ -424,22 +326,3 @@ class MY_Model extends CI_Model {
     }
 
 }
-
-/*
- * 
- public function fetch_mpi_datils($mpi_id) {
-        $where = "md.mpi_id = " . $mpi_id;
-        $join_array = array(
-            array('table' => 'mpi_parts_details mpd', 'condition' => 'mpd.mpi_detail_id = md.id', 'direction' => 'left'),
-            array('table' => 'mpi_labour_details mld', 'condition' => 'mld.mpi_detail_id = md.id', 'direction' => 'left')
-        );
-
-        $select = 'mpd.stock as stock , (mpd.price + mld.price) as price_ccy , md.*';
-        $result = $this->Technician_mpi_details_model->fetch_join_multiple_limit(NULL, NULL, $select, $this->table_name . ' md', $join_array, $where, false, 'md.sub_section_id');
-        return $result;
-    }
- * 
- * 
- * 
- * 
- */

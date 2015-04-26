@@ -16,37 +16,57 @@ class User extends CI_Controller {
         $data['title'] = SITE_TITLE;
         $this->load->view('user/index', $data);
     }
+
     public function my_ads() {
         $data['title'] = "Login";
         $this->load->view('user/my_ads', $data);
     }
+
     public function me() {
         $data['title'] = "Khadim-Raath";
         $this->load->view('user/me', $data);
     }
+
     public function login() {
-       $data['title']="Advertisement";
-        $this->load->view('advertisement/index',$data);
+        if ($this->input->is_ajax_request()) {
+            $this->load->model('User_model');
+            $result = $this->User_model->user_login();
+            echo json_encode($result);
+        } else {
+            $data['title'] = "Login";
+            $this->load->view('advertisement/index', $data);
+        }
     }
+
     public function register() {
-        $data['title'] = "signup";
-        $email_data['email']="khadim.raath@incubasys.com";
-        $email_data['name']="khadim Raath";
-        email_test($email_data);
-        die('sdlkks');
-        //$this->load->view('user/create', $data);
+        if ($this->input->is_ajax_request()) {
+            $this->load->model('User_model');
+            $result = $this->User_model->create_user();
+            echo json_encode($result);
+        } else {
+            $data['title'] = "Register";
+            $this->load->view('advertisement/index', $data);
+        }
     }
+
     public function logout() {
-        $data['title'] = "Logut";
+        $this->session->sess_destroy();
         redirect('advertisement/index');
     }
+
     public function settings() {
         $data['title'] = "Settings";
         $this->load->view('user/settings', $data);
     }
+
     public function change_password() {
         $data['title'] = "Change Password";
         $this->load->view('user/change_pwd', $data);
+    }
+    public function mail(){
+        $email_data['email']="khadim.raath@incubasys.com";
+        $email_data['name']="khadim";
+        email_test($email_data);
     }
 
 }

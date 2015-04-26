@@ -12,20 +12,20 @@ $(function () {
             });
 });
 
- $(function(){
-    $(".dropdown").hover(            
-            function() {
-                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+$(function () {
+    $(".dropdown").hover(
+            function () {
+                $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
                 $(this).toggleClass('open');
-                $('b', this).toggleClass("caret caret-up");                
+                $('b', this).toggleClass("caret caret-up");
             },
-            function() {
-                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+            function () {
+                $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
                 $(this).toggleClass('open');
-                $('b', this).toggleClass("caret caret-up");                
+                $('b', this).toggleClass("caret caret-up");
             });
-    });
-    
+});
+
 
 function ads() {
     this.title = arguments[0];
@@ -34,33 +34,33 @@ function ads() {
     this.price = arguments[3];
     this.location = arguments[4];
 }
-function post_add(item,base_url){
+function post_add(item, base_url) {
     var str = '<div class="block">';
-        str += ' <div class="image">';
-        str += '<img class="ad-img" src="' + base_url + 'assets/uploads/' + item.image + '" alt="" class="img-responsive">';
-        str += '</div>';
-        str += '<div class="text-wrap">';
-        str += '<a href="' + base_url + 'advertisement/view/'+item.title+'">';
-        str += '<span class="title">' +item.title + '</span>';
-        str += '</a>';
-        str += '<span class="price">Rs.'+item.price+'</span>';
-        str += '<span class="location">' + item.location + '</span>';
-        str += '</div>';
-        str += '<a class="buy" href="' + base_url + 'advertisement/buy/id">Buy</a>';
-        str += '</div>';
-        $('.ads').append(str);
-        return true;
+    str += ' <div class="image">';
+    str += '<img class="ad-img" src="' + base_url + 'assets/uploads/' + item.image + '" alt="" class="img-responsive">';
+    str += '</div>';
+    str += '<div class="text-wrap">';
+    str += '<a href="' + base_url + 'advertisement/view/' + item.title + '">';
+    str += '<span class="title">' + item.title + '</span>';
+    str += '</a>';
+    str += '<span class="price">Rs.' + item.price + '</span>';
+    str += '<span class="location">' + item.location + '</span>';
+    str += '</div>';
+    str += '<a class="buy" href="' + base_url + 'advertisement/buy/id">Buy</a>';
+    str += '</div>';
+    $('.ads').append(str);
+    return true;
 }
 $(document).ready(function () {
     var base_url = $('#base_url').val();
-    $("#form").parsley({trigger: "change"});
-    
-    
-    
+    $("#login_form").parsley({trigger: "change"});
+
+
+
     ///////////////////////////////////////
-    var category = ['Laptops', 'Mobiles', 'Cats', 'Dogs', 'LEDs','Electronics', 'Assesories-m', 'Asseories-l'];
-    var location = ['Lahore', 'Islamabad', 'Karachi', 'Peshawar', 'Multan','Faisalabad', 'Bahawalnagar', 'Kasur']
-    
+    var category = ['Laptops', 'Mobiles', 'Cats', 'Dogs', 'LEDs', 'Electronics', 'Assesories-m', 'Asseories-l'];
+    var location = ['Lahore', 'Islamabad', 'Karachi', 'Peshawar', 'Multan', 'Faisalabad', 'Bahawalnagar', 'Kasur']
+
     var ads_array = new Array();
     ads_array[0] = new ads("Dell-3721", category[0], "laptop.jpg", 30, location[0]);
     ads_array[1] = new ads("Samsung-s3", category[1], "mobile.jpg", 30, location[1]);
@@ -70,7 +70,7 @@ $(document).ready(function () {
 
     for (i = 0; i < ads_array.length; i++) {
         var item = ads_array[i];
-        post_add(item,base_url);
+        post_add(item, base_url);
     }
     /////////location/////////////
     for (j = 0; j < location.length; j++) {
@@ -87,50 +87,126 @@ $(document).ready(function () {
         cat = '<li><a href="' + base_url + 'category/view_all/' + category[j] + '">' + category[j] + '</a></li>';
         $('#category-footer').append(cat);
     }
-    
+
     ///////// post new ad///////////////
 
     $('.new-link').on('click', function () {
         var item = new ads("Tablet-I9", "Tablets", "laptop2.jpg", 30, "Bahawalbagr");
-        post_add(item,base_url);
-        ads_array[ads_array.length]=item;
+        post_add(item, base_url);
+        ads_array[ads_array.length] = item;
     });
     $('.buy').on('click', function () {
         alert("This item purchase successfully.");
     });
-    
+
     ////////search functionality//////
     $('.search-btn').on('click', function () {
-       var search_txt =$('.search-text').val();
-       var result=new Array();
-        for(i=0;i<ads_array.length;i++){
-            var item=ads_array[i];
-           // alert(search_txt===item.title);
-            if(search_txt===item.title){
-                console.log('found at'+i);
+        var search_txt = $('.search-text').val();
+        var result = new Array();
+        for (i = 0; i < ads_array.length; i++) {
+            var item = ads_array[i];
+            // alert(search_txt===item.title);
+            if (search_txt === item.title) {
+                console.log('found at' + i);
                 result.push(item);
             }
         }
-         $('.ads').html("");
-        if(result.length===0){
-          //  alert("Not Found");
+        $('.ads').html("");
+        if (result.length === 0) {
+            //  alert("Not Found");
             $('.ads').html("Not found");
         }
-        for (j=0;j<result.length;j++){
-            post_add(result[j],base_url);
+        for (j = 0; j < result.length; j++) {
+            post_add(result[j], base_url);
         }
-           
+
     });
     ///////////// print 2 /////////
-   $(".thumb img").on("click",function(){
-       var src=$(this).attr("src");
-      //alert(src); 
-      $("#ad-img-view").attr("src",src);
-   });
-   
-   $(".search-text").on("click",function(){; 
-    $(this).toggleClass('clicked');
-   });
-    
-    ///////////////
+    $(".thumb img").on("click", function () {
+        var src = $(this).attr("src");
+        //alert(src); 
+        $("#ad-img-view").attr("src", src);
+    });
+
+    $(".search-text").on("click", function () {
+        ;
+        $(this).toggleClass('clicked');
+    });
+/////////////////////////
+    $("#login_form").submit(function (e)
+    {
+        var postData = $(this).serialize();
+        var formURL = $(this).attr("action");
+        $.ajax(
+                {
+                    url: formURL,
+                    type: "POST",
+                    data: postData, //{"email":"dkjdk","password":"abc" },
+                    success: function (data, textStatus, jqXHR)
+                    {
+                        var result = JSON.parse(data);
+                        console.log(result);
+                        if (result['result'] == true) {
+                            $(".error").html();
+                            var html = "<center><h2>Logged in Successfully</h2>";
+
+                            $('.modal-body').html(html);
+                            var delay = 1000; //Your delay in milliseconds
+
+                            setTimeout(function () {
+                                window.location = base_url + "advertisement";
+                            }, delay);
+                            //window.location.href=base_url+"user/login";
+                        }
+                        else {
+                            $(".error").text(result['message']);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        console.log("error");
+                    }
+                });
+        e.preventDefault(); //STOP default action
+      //  e.unbind(); //unbind. to stop multiple form submit.
+    });
+
+    $("#register_form").submit(function (e)
+    {
+        var postData = $(this).serialize();
+        var formURL = $(this).attr("action");
+        $.ajax(
+                {
+                    url: formURL,
+                    type: "POST",
+                    data: postData, //{"email":"dkjdk","password":"abc" },
+                    success: function (data, textStatus, jqXHR)
+                    {
+                        var result = JSON.parse(data);
+                        console.log(result);
+                        if (result['result'] == true) {
+                            $(".error").html();
+                            var html = "<center><h2>Registered Successfully</h2>";
+                            html += "<div>An email has been sent.Please verify, and Login </div> </center>";
+
+                            $('.modal-body').html(html);
+                            //window.location.href=base_url+"user/login";
+                        }
+                        else {
+                            $(".error").text(result['message']);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        console.log("error");
+                    }
+                });
+        e.preventDefault(); //STOP default action
+        //e.unbind(); //unbind. to stop multiple form submit.
+    });
+//    $('#register-btn').on('click', function () {
+//        $("#register_form").submit();
+//    });
+    //$("#login_form").submit(); //Submit  the FORM
+    ////////////////
 });

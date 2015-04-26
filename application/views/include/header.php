@@ -40,7 +40,7 @@
                                     <div id="enter_links" class="text-center">
                                         <a href="<?= base_url(); ?>user/register">Register</a>
                                         <span id="devider" >|</span>
-                                        <a href="<?= base_url(); ?>user/login" data-toggle="modal" data-target="#loginModal">Login</a>
+                                        <a href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                                     </div>
                                     <?php
                                 }
@@ -59,7 +59,7 @@
                             </p>
                             <ul class="nav navbar-nav new-ad">
                                 <li>
-                                    <a class="new-link" href="#"><span class="plus-icon">+</span> Submit Ad</a>
+                                    <a class="new-link" href="<?= base_url(); ?>advertisement/submit_ad"><span class="plus-icon">+</span> Submit Ad</a>
                                 </li>
                             </ul>
                         </div>

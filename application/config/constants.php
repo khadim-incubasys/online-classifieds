@@ -18,6 +18,14 @@ define('FILE_WRITE_MODE', 0666);
 define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
 
+
+/* * ************RABBIT MQ constants*********************** */
+
+define('RMQHOST', 'localhost');
+define('RMQPORT', 5672);
+define('RMQUSER', 'guest');
+define('RMQPASS', 'guest');
+define('RMQVHOST', '/');
 /*
 |--------------------------------------------------------------------------
 | File Stream Modes
@@ -45,3 +53,6 @@ define("APP_TITLE", "Online Classifieds");
 define('ADMIN_EMAIL', 'no-reply@incubasys.com');
 define('ADMIN_EMAIL_PASSWORD', 'no-rep@$$');
 define('ADMIN_NAME', 'No-reply');
+
+define("ERROR", " : error");
+define("SUCCESS", " : success");
