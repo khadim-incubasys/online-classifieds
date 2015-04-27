@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database','session','form_validation','Rabbitmq'
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('form', 'url', 'date', 'array', 'text','email_sender','email_templates','auth');
+$autoload['helper'] = array('form', 'url','data', 'date', 'array', 'text','email_sender','email_templates','auth');
 
 
 /*

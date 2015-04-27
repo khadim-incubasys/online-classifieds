@@ -1,6 +1,6 @@
 <?php
 $display_msg='';
-$class='';
+$class='error';
 if ($this->session->flashdata('message')) {
     $msg = $this->session->flashdata('message');
     $msg = explode(':', $msg);
@@ -9,7 +9,7 @@ if ($this->session->flashdata('message')) {
     $display_msg = $msg[1];
     }
     else{
-        $class=SUCCESS_MESSAGE;
+        $class="error";
       $display_msg = $msg[0];  
     }
 }

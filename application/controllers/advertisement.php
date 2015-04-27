@@ -34,9 +34,15 @@ class Advertisement extends CI_Controller {
     }
 
     public function submit_ad() {
+
         if (is_logged_in()) {
-            $data['title'] = "New Ad";
-            $this->load->view('advertisement/create', $data);
+            if ($this->input->server('REQUEST_METHOD') != 'POST') {
+                $data['title'] = "New Ad";
+                $this->load->view('advertisement/create', $data);
+            }
+            else{
+                print_r($_POST);die;
+            }
         } else {
             redirect('user/login');
         }

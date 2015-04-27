@@ -10,6 +10,13 @@ class User extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $method = $this->router->method;
+        $auth_methods = array("index", "my_ads", "me", "logout", "settings", "change_password");
+        if (in_array($method, $auth_methods)) {
+            if (!is_logged_in()) {
+                show_404();
+            }
+        }
     }
 
     public function index() {
@@ -49,6 +56,15 @@ class User extends CI_Controller {
         }
     }
 
+    public function verify_registration($token) {
+        $this->load->model('User_model');
+        if ($this->User_model->activate($token)) {
+            redirect('user/login');
+        } else {
+            show_404();
+        }
+    }
+
     public function logout() {
         $this->session->sess_destroy();
         redirect('advertisement/index');
@@ -62,11 +78,6 @@ class User extends CI_Controller {
     public function change_password() {
         $data['title'] = "Change Password";
         $this->load->view('user/change_pwd', $data);
-    }
-    public function mail(){
-        $email_data['email']="khadim.raath@incubasys.com";
-        $email_data['name']="khadim";
-        email_test($email_data);
     }
 
 }

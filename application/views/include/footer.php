@@ -15,15 +15,36 @@
 
                     </ul>
                 </div>
+                <?php
+                $categories = get_categories();
+                $locations = get_locations();
+                ?>
                 <div class="wrap">
                     <h2>category</h2>
-                    <ul id="category-footer">
+                    <ul>
+                        <?php
+                        if (isset($categories) && !empty($categories)) {
+                            foreach ($categories as $key => $val) {
+                                ?>
+                               <li><a href="<?= base_url(); ?>category/view_all/<?= $val['title']; ?>"><?= $val['title']; ?></a></li>
+                                <?php
+                            }
+                        }
+                        ?>
                     </ul>
                 </div>     
                 <div class="wrap">
                     <h2>Location</h2>
-                    <ul id="location-footer">
-
+                    <ul>
+                        <?php
+                        if (isset($locations) && !empty($locations)) {
+                            foreach ($locations as $key => $val) {
+                                ?>
+                                <li><a href="<?= base_url(); ?>location/view_all/<?= $val['title']; ?>"><?= $val['title']; ?></a></li>
+                                <?php
+                            }
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div class="wrap">

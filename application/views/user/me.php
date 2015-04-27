@@ -5,6 +5,9 @@
         <div class="main-wrap">
             <div class="user-content">
                 <h2 class="form-header-user">ME</h2>
+                <?php 
+                $user=$this->session->userdata("user");
+                ?>
                 <div id="contact" class="form-user" role="form">
                     <div class="row">
                         <div class="col-xs-6 form-group">
@@ -20,14 +23,14 @@
 <!--                            <img class="dp-img img-responsive" src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt="" >-->
                         </div>
                       
-                            <h2> Khadim Raath</h2>
-                            <h5> Khadim.raath@incubasys.com </h5>
-                            <h5>030012346789</h5>
+                            <h2> <?= $user->name;?></h2>
+                            <h5> <?= $user->email;?> </h5>
+                            <h5><?= $user->phone?></h5>
                      
                     </div>
                     
-                    <h5>Lahore , Pakistan</h5>
-                    <h5>Kamran Block Allama Iqbal Town Lahore</h5>
+                    <h5><?= $user->city?> , <?= $user->country?></h5>
+                    <h5><?= $user->address?></h5>
                     <br />
                     <div class="row">
                         <div class="col-xs-6 col-md-10 form-group">

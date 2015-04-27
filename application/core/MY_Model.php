@@ -39,14 +39,14 @@ class MY_Model extends CI_Model {
         return $query->get($this->table_name)->result_array();
     }
 
-    public function get_all_custom_where($where, $select = FALSE, $in_query_arr = FALSE) {
+    public function get_all_custom_where($where=false, $select = FALSE, $in_query_arr = FALSE) {
         $query = $this->db;
         if ($select) {
             $query = $query->select($select);
         }
         if ($in_query_arr)
             $query = $query->where_in($where, $in_query_arr);
-        else
+        else if($where)
             $query = $query->where($where);
         return $query->get($this->table_name)->result_array();
     }

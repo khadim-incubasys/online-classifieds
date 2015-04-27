@@ -24,6 +24,10 @@
 
     <body>
         <input type="hidden" id="base_url" name="base_url" value="<?= base_url(); ?>" />
+        <?php
+        $categories = get_categories();
+        $locations = get_locations();
+        ?>
         <div class="container">
             <div class="row clearfix h-holder">
                 <div class="col-md-12 column">
@@ -88,15 +92,32 @@
                                 </div>      
                                 <div class="form-group">
                                     <label for="location">Location:</label>
-                                    <select name="location" id="select-location" class="form-control form-inline">
+                                    <select name="location" class="form-control form-inline">
                                         <option value="">Select</option>
+                                        <?php
+                                        if (isset($locations) && !empty($locations)) {
+                                            foreach ($locations as $key => $val) {
+                                                ?>
+                                                <option value="<?= $val['title']; ?>"><?= $val['title']; ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category:</label>
-                                    <select name="category" id="select-category" class="form-control form-inline">
+                                    <select name="category" class="form-control form-inline">
                                         <option value="">Select</option>
-
+                                        <?php
+                                        if (isset($categories) && !empty($categories)) {
+                                            foreach ($categories as $key => $val) {
+                                                ?>
+                                                <option value="<?= $val['title']; ?>"><?= $val['title']; ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">

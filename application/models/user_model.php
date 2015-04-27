@@ -28,7 +28,7 @@ class User_model extends MY_Model {
                     "name" => $this->input->post('name'),
                     'token' => $token,
                     'status' => 0,
-                    "password" => $password,
+                    "password" => md5($password),
                     "email" => $email,
                     "country" => $this->input->post('country'),
                     "city" => $this->input->post('city'),
@@ -36,7 +36,11 @@ class User_model extends MY_Model {
                     "phone" => $this->input->post('phone')
                 );
                 if ($this->User_model->create($insert)) {
-                    send_email($recipient);
+                    $email_data['email'] = $email;
+                    $email_data['name'] = $this->input->post('name');
+                    $email_data['token'] = $token;
+                    $email_data['password'] = $password;
+                    email_registration($email_data);
                     return array("result" => TRUE, "message" => "Registered Successfully");
                 } else {
                     return array("result" => FALSE, "message" => "Something went wrong");
@@ -51,25 +55,40 @@ class User_model extends MY_Model {
 
     public function user_login() {
         $email = $this->input->post('email');
-        $password = $this->input->post('password');
-        
+        $password = md5($this->input->post('password'));
+
         $this->db->where("email", $email);
         $this->db->where("password", $password);
         $db_result = $this->db->get($this->table_name);
-        
+
         if ($db_result && !empty($db_result)) {
-            
+
             if ($db_result->num_rows() == 1) {
                 $user = $db_result->row();
-                $this->session->set_userdata("user", $user);
-                $this->session->set_userdata('logged_in', TRUE);
-                return array("result" => true, "message" => "Logged in successfully");
-            }
-            else{
-                return array("result" => false, "message" => "Something went wrong");
+                if ($user->status == 1) {
+                    $this->session->set_userdata("user", $user);
+                    $this->session->set_userdata('logged_in', TRUE);
+                    return array("result" => true, "message" => "Logged in successfully");
+                } else {
+                    return array("result" => FALSE, "message" => "User is not active. Please activate first.");
+                }
+            } else {
+                return array("result" => false, "message" => "Email or password is incorrect");
             }
         } else {
-            return array("result" => FALSE, "message" => "Invalid or some fields missing");
+            return array("result" => FALSE, "message" => "Email or password is incorrect");
+        }
+    }
+
+    public function activate($token) {
+        if ($this->is_already_exist("token", $token)) {
+            if ($this->update("token", $token, array("status" => 1))) {
+                $this->session->set_flashdata("message", SUCCESS."Verified Successfully. Please Login");
+                return TRUE;
+            }
+        } else {
+            $this->session->set_flashdata("message", ERROR."Something went wrong.");
+            return FALSE;
         }
     }
 

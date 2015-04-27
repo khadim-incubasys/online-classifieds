@@ -702,3 +702,24 @@ ol, ul {
     color: #090;
     margin-left: 14%;
 }
+
+.main-wrap .main-content-new-ad{
+    overflow: hidden;
+    padding: 10px 10px 25px;
+}
+.main-wrap .aside-new-ad{
+    float: right;
+    width: 50%;
+    // background: burlywood;//#ccc;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    margin-right: 0px;
+    padding-left: 44px  
+}
+.aside-new-ad row{
+   padding: 0px 5px;
+}
+#browse-img-view{
+    width: 255px;
+    height: 255px;
+}

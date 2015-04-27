@@ -1,5 +1,8 @@
 <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'me.jpg' ?>" alt=""><strong class="user-name">Khadim Raath </strong> <b class="caret"></b></a>
+    <?php
+    $user = $this->session->userdata("user");
+    ?>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="<?= base_url() . UPLOAD_PATH . 'me.jpg' ?>" alt=""><strong class="user-name"><?= $user->name; ?></strong> <b class="caret"></b></a>
     <ul class="dropdown-menu">
         <li>
             <a href="<?= base_url() ?>user/me">me</a>

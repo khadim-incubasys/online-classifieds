@@ -168,7 +168,7 @@ $(document).ready(function () {
                     }
                 });
         e.preventDefault(); //STOP default action
-      //  e.unbind(); //unbind. to stop multiple form submit.
+        //  e.unbind(); //unbind. to stop multiple form submit.
     });
 
     $("#register_form").submit(function (e)
@@ -204,9 +204,19 @@ $(document).ready(function () {
         e.preventDefault(); //STOP default action
         //e.unbind(); //unbind. to stop multiple form submit.
     });
-//    $('#register-btn').on('click', function () {
-//        $("#register_form").submit();
-//    });
-    //$("#login_form").submit(); //Submit  the FORM
-    ////////////////
+
+    $("#browse-img").change(function () {
+        readURL(this);
+    });
 });
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#browse-img-view').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

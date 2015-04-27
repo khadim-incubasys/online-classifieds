@@ -54,5 +54,5 @@ define('ADMIN_EMAIL', 'no-reply@incubasys.com');
 define('ADMIN_EMAIL_PASSWORD', 'no-rep@$$');
 define('ADMIN_NAME', 'No-reply');
 
-define("ERROR", " : error");
-define("SUCCESS", " : success");
+define("ERROR", "error :");
+define("SUCCESS", "success :");
