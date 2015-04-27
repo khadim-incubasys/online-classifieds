@@ -56,5 +56,10 @@ class Advertisement extends CI_Controller {
     public function search() {
         
     }
+    
+    public function upload_image() {
+        $this->load->library('Imageuploader');
+        $upload_handler = new Imageuploader(null, true);
+    }
 
 }

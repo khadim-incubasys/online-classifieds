@@ -20,6 +20,9 @@
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/parsley.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/sweet-alert.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/all.js"></script>
+        
+        <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.iframe-transport.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.fileupload.js" charset="UTF-8"></script>
     </head>
 
     <body>
