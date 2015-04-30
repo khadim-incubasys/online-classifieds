@@ -31,6 +31,7 @@ class User_model extends MY_Model {
                     "password" => md5($password),
                     "email" => $email,
                     "country" => $this->input->post('country'),
+                    "image_url" => $this->input->post('image1'),
                     "city" => $this->input->post('city'),
                     "address" => $this->input->post('address'),
                     "phone" => $this->input->post('phone')

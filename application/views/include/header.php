@@ -20,7 +20,7 @@
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/parsley.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/sweet-alert.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/all.js"></script>
-        
+        <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.iframe-transport.js" charset="UTF-8"></script>
         <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.fileupload.js" charset="UTF-8"></script>
     </head>
@@ -85,50 +85,56 @@
                         </div>
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                            <div class="navbar-form navbar" role="search">
-                                <div class="form-group form-inline">
-                                    <label for="below-range">Price Range:</label>
-                                    <input type="number" class="form-control price-range" placeholder="From" name="below-range" />
-                                    --
-                                    <input type="number" name="up-range" placeholder="To" class="form-control price-range"/>
-                                </div>      
-                                <div class="form-group">
-                                    <label for="location">Location:</label>
-                                    <select name="location" class="form-control form-inline">
-                                        <option value="">Select</option>
-                                        <?php
-                                        if (isset($locations) && !empty($locations)) {
-                                            foreach ($locations as $key => $val) {
-                                                ?>
-                                                <option value="<?= $val['title']; ?>"><?= $val['title']; ?></option>
-                                                <?php
+                            <form method="get" action="<?= base_url(); ?>advertisement/search">
+                                <div class="navbar-form navbar" role="search">
+                                    <div class="form-group form-inline">
+                                        <label for="below-range">Price Range:</label>
+                                        <input type="number" class="form-control price-range"  min="0"
+                                               value="<?= (isset($below_range) && !empty($below_range)) ? $below_range : "" ?>"
+                                               placeholder="From" name="below-range" />
+                                        --
+                                        <input type="number" name="up-range" min="0"
+                                               value="<?= (isset($up_range) && !empty($up_range)) ? $up_range : "" ?>"
+                                               placeholder="To" class="form-control price-range"/>
+                                    </div>      
+                                    <div class="form-group">
+                                        <label for="location">Location:</label>
+                                        <select name="location" class="form-control form-inline">
+                                            <option value="">Select</option>
+                                            <?php
+                                            if (isset($locations) && !empty($locations)) {
+                                                foreach ($locations as $key => $val) {
+                                                    ?>
+                                                    <option value="<?= $val['title']; ?>" <?= (isset($location) && $location == $val['title']) ? 'selected="selected"' : "" ?> ><?= $val['title']; ?></option>
+                                                    <?php
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="category">Category:</label>
-                                    <select name="category" class="form-control form-inline">
-                                        <option value="">Select</option>
-                                        <?php
-                                        if (isset($categories) && !empty($categories)) {
-                                            foreach ($categories as $key => $val) {
-                                                ?>
-                                                <option value="<?= $val['title']; ?>"><?= $val['title']; ?></option>
-                                                <?php
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category:</label>
+                                        <select name="category" class="form-control form-inline">
+                                            <option value="">Select</option>
+                                            <?php
+                                            if (isset($categories) && !empty($categories)) {
+                                                foreach ($categories as $key => $val) {
+                                                    ?>
+                                                    <option value="<?= $val['title']; ?>" <?= (isset($category) && $category == $val['title']) ? 'selected="selected"' : "" ?>><?= $val['title']; ?></option>
+                                                    <?php
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </select>
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="search-text"
+                                               value="<?= (isset($search_text) && !empty($search_text)) ? $search_text : "" ?>"
+                                               placeholder="Search Ad here" class="form-control search-text">
+                                    </div>
+                                    <button type="submit" class="btn btn-default search-btn" >Search</button>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="search-text" placeholder="Search Ad here" class="form-control search-text">
-                                </div>
-                                <button type="s" class="btn btn-default search-btn" >Search</button>
-                            </div>
-
+                            </form>
                         </div>
 
                     </nav>

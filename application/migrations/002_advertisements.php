@@ -14,7 +14,6 @@ class Migration_advertisements extends CI_Migration {
         $this->dbforge->add_field("category varchar(255)");
         $this->dbforge->add_field("image_url varchar(255)");
        
-        $this->dbforge->add_field("images varchar(255)");
         $this->dbforge->add_field("stock int(11)");
         
          $this->dbforge->add_field("status BOOLEAN NOT NULL DEFAULT 0 ");

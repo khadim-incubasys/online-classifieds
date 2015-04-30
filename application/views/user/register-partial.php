@@ -10,13 +10,15 @@
 
             <div class="modal-body">
                 <form id="register_form" action="<?= base_url(); ?>user/register" method="post" class="form-horizontal">
-                    
+
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Name</label>
                         <div class="col-xs-5">
                             <input name="name" type="text" required="" data-parsley-minlength="3" data-parsley-mazlength="20" class="form-control" placeholder="Name" />
                         </div>
                     </div>
+                    
+
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Email</label>
                         <div class="col-xs-5">
@@ -46,6 +48,14 @@
                         <div class="col-xs-5">
                             <input name="address" type="text" required="" data-parsley-minlength="6" data-parsley-mazlength="20" class="form-control" placeholder="Address" />
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Picture</label>
+                         <div class="col-xs-5">
+                             <input type="file" id="pict1" name="files[]" class="fileupload">
+                        <input type="hidden" id="image1" name="image1" class="image" />
+                        <img class="dp-browse" src="" alt="image" />
+                         </div>
                     </div>
 
                     <div class="form-group">

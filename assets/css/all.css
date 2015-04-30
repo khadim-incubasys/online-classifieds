@@ -332,7 +332,7 @@ body{
 }
 #ad-img-view{
     height: 267px;
-    width: 386px;
+    width: 400px;
     border: 1px solid #999;
     border-radius: 5px;
 }
@@ -494,7 +494,8 @@ body{
 .price-view{
     font-size: 30px;
     color: sandybrown;
-    margin:0% 0%;
+    margin:-1% 0%;
+      padding-left: 4%;
 }
 
 .help-block{
@@ -637,7 +638,7 @@ input[type="button"].upload
 
 .thumb img
 {
-    width: 23.4%;
+    width: 22%;
     height: 64px;
     float: left;
     margin: 10px 3px 0px;
@@ -722,4 +723,26 @@ ol, ul {
 #browse-img-view{
     width: 255px;
     height: 255px;
+}
+.images-browse{
+     width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 8px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+.image-view{
+     padding-top: 10px;
+    width: 200px;
+    height: 200px;
+}
+.dp-browse{
+    padding-top: 10px;
+    width: 50px;
+    height: 50px;
+}
+#no-results{
+    margin-left: 35%;
+    margin-top: 20%;
 }

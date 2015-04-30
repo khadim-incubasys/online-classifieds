@@ -29,7 +29,7 @@
                     }
                 } else {
                     ?>
-                    <h2 id="no-results">No Advertisements Exist </h2>
+                    <h2 id="no-results">No Results Found </h2>
                     <?php
                 }
                 ?>
@@ -51,6 +51,6 @@
                 <li><a href="#">Next</a></li>
             </ul>
         </div>
-    <?php } ?>
+    <?php } ?> 
 </div>
 <?php $this->load->view('include/footer'); ?>

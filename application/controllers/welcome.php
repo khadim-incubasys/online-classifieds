@@ -11,7 +11,9 @@ class Welcome extends CI_Controller {
     }
 
     public function index() {
-        $data['title'] = "All Advertisements";
+         $data['title'] = "Advertisements";
+        $this->load->model('Advertisement_model');
+        $data['ads']=  $this->Advertisement_model->get_all_custom_where(array("status"=>1));
         $this->load->view('advertisement/index', $data);
     }
     public function contact_us(){

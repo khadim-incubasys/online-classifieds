@@ -45,7 +45,7 @@ class Imageuploader {
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')) . '/assets/uploads/',
             'upload_url' => $this->get_full_url() . '/assets/uploads/',
             'user_dirs' => false,
-            'mkdir_mode' => 0755,
+            'mkdir_mode' => 777,
             'param_name' => 'files',
             // Set the following option to 'POST', if your server does not support
             // DELETE requests. This is a parameter sent to the client:
@@ -79,7 +79,7 @@ class Imageuploader {
             // Defines which files can be displayed inline when downloaded:
             'inline_file_types' => '/\.(gif|jpe?g|png)$/i',
             // Defines which files (based on their names) are accepted for upload:
-            'accept_file_types' => '/.+$/i',
+            'accept_file_types' => '/\.(gif|jpe?g|png)$/i',
             // The php.ini settings upload_max_filesize and post_max_size
             // take precedence over the following max_file_size setting:
             'max_file_size' => null,
@@ -132,7 +132,7 @@ class Imageuploader {
                   'max_height' => 600
                   ),
                  */
-                'thumbnail' => array(
+                //'thumbnail' => array(
                     // Uncomment the following to use a defined directory for the thumbnails
                     // instead of a subdirectory based on the version identifier.
                     // Make sure that this directory doesn't allow execution of files if you
@@ -143,9 +143,9 @@ class Imageuploader {
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
                     //'crop' => true,
-                    'max_width' => 80,
-                    'max_height' => 80
-                )
+//                    'max_width' => 80,
+//                    'max_height' => 80
+//                )
             ),
             'print_response' => true
         );
@@ -462,7 +462,7 @@ class Imageuploader {
     protected function fix_file_extension($file_path, $name, $size, $type, $error, $index, $content_range) {
         // Add missing file extension for known image types:
         if (strpos($name, '.') === false &&
-                preg_match('/^image\/(gif|jpe?g|png)/', $type, $matches)) {
+                preg_match('/^image\/(jpe?g|png)/', $type, $matches)) {
             $name .= '.' . $matches[1];
         }
         if ($this->options['correct_image_extensions'] &&
@@ -1287,7 +1287,7 @@ class Imageuploader {
             }
             $response[$file_name] = $success;
         }
-        return $this->generate_response($response, $print_response);
+        return $this->generate_response($reIMAGETYPE_PNGsponse, $print_response);
     }
 
 }

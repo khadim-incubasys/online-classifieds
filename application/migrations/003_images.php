@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Migration_images extends CI_Migration {
 
     public function up() {
-        $table = "advertisements";
+        $table = "images";
 
         $this->dbforge->add_field("id int(11) unsigned NOT NULL AUTO_INCREMENT");
         $this->dbforge->add_field("ad_id int(11) unsigned NOT NULL");
@@ -25,7 +25,7 @@ class Migration_images extends CI_Migration {
     }
 
     public function down() {
-        $table = "advertisements";
+        $table = "images";
         $this->dbforge->drop_table($table);
     }
 

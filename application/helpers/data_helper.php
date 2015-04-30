@@ -8,8 +8,8 @@
 
 function get_locations() {
     $ci = get_instance();
-    $ci->load->model('Category_model');
-    return $ci->Category_model->get_all_custom_where(FALSE, "id , title");
+    $ci->load->model('Location_model');
+    return $ci->Location_model->get_all_custom_where(FALSE, "id , title");
 }
 
 function get_categories() {

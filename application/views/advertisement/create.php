@@ -35,7 +35,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8 col-md-12 form-group">
-                            <input class="form-control"  name="price" placeholder="Price" type="number"  min="0" data-parsley-required autofocus />
+                            <input class="form-control"  name="price" placeholder="Price" type="number"  min="0" data-parsley-required />
                         </div>
                     </div>
                     <div class="row">
@@ -54,7 +54,12 @@
                             </select>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-xs-8 col-md-12 form-group">
+                            <input class="form-control"  name="stock" placeholder="Items in Stock" type="number"  min="0" data-parsley-required />
+                        </div>
+                    </div>
+                    <textarea class="col-xs-8 col-md-12 form-group" id="message" name="description" placeholder="Description" rows="8" required=""></textarea>
                     <br />
                     <div class="row">
                         <div class="col-xs-8 col-md-12 form-group">
@@ -65,15 +70,29 @@
                 </div>
             </div>
             <div class="main-content-new-ad">
-                <h2></h2>
+                <h2>Ad Images</h2>
                 <div class="holder">
-                    <!--<input id="browse-img" type="file" name="image" class="form-control" />-->
-                    <input type="file" id="pict1" name="files[]" class="fileupload form-control">
-                    <input type="hidden" id="image1" name="image1" class="image" />
+                    <div class="images-browse">
+                        <input type="file" id="pict1" name="files[]" class="fileupload" >
+                        <input type="hidden" id="image1" name="image1" class="image" />
+                        <img class="image-view" src="" alt="image" />
+                    </div>
+                    <div class="images-browse">
+                        <input type="file" id="pict2" name="files[]" class="fileupload" >
+                        <input type="hidden" id="image2" name="image2" class="image" />
+                        <img class="image-view" src="" alt="image" />
+                    </div>
+                    <div class="images-browse">
+                        <input type="file" id="pict3" name="files[]" class="fileupload">
+                        <input type="hidden" id="image3" name="image3" class="image" />
+                        <img class="image-view" src="" alt="image" />
+                    </div>
+                    <div class="images-browse">
+                        <input type="file" id="pict4" name="files[]" class="fileupload">
+                        <input type="hidden" id="image4" name="image4" class="image" />
+                        <img class="image-view" src="" alt="image" />
+                    </div>
                     <br>
-                    <img id="pict1" src="" alt="image" />
-                    <img id="pict2" src="" alt="image" />
-                    <img id="pict3" src="" alt="image" />
                 </div>
             </div>
 
@@ -81,28 +100,9 @@
 
     </form>
 </div>
-<span style="display: none;" id="base_url"><?= base_url(); ?></span>
 
 <script>
-    var base_url = $("#base_url").text();
-    var url = base_url + "advertisement/upload_image";
-    console.log(url);
-    $('.fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-        acceptFileTypes: /(\.|\/)(jpg|jpeg|png)$/i,
-        autoUpload: true,
-        add: function(e, data) {
-            data.submit();
-        },
-        done: function(e, data) {
-            $(this).siblings('input[type="hidden"]').val(data.result.files[0]['name']);
-        },
-        fail: function(e) {
-            console.log(e);
-        }
-    }).prop('disabled', !$.support.fileInput)
-            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+   
 
 </script>
 
