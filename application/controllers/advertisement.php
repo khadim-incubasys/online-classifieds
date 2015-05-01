@@ -65,15 +65,11 @@ class Advertisement extends CI_Controller {
         }
     }
 
-    public function contact_to_buy($id) {
-        $this->load->model('Advertisement_model');
-        $result = $this->Advertisement_model->get_single_ad($id);
-        if ($result && !empty($result)) {
-            $data['ad'] = $result[0];
-            $this->load->model('User_model');
-            $data['user'] = $this->User_model->get_single("id", $result[0]['user_id']);
-            $data['title'] = "Contact to buy";
-            $this->load->view('advertisement/contact-to-buy', $data);
+    public function contact_to_buy() {
+        if ($this->input->is_ajax_request()) {
+            $this->load->model('Advertisement_model');
+            $result = $this->Advertisement_model->contact_to_buy();
+            echo json_encode($result);
         } else {
             show_404();
         }

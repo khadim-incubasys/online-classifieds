@@ -79,12 +79,27 @@ class Advertisement_model extends MY_Model {
             $data['location'] = $location;
         }
         if (!empty($search_text)) {
-            $where['title like '] = '%'.$search_text.'%';
+            $where['title like '] = '%' . $search_text . '%';
             $data['search_text'] = $search_text;
         }
         $data['ads'] = $this->Advertisement_model->get_all_custom_where($where);
 
         return $data;
+    }
+
+    public function contact_to_buy() {
+        $id = $this->input->post("id");
+        if (!empty($id)) {
+            $result = $this->Advertisement_model->get_single_ad($id);
+            if ($result && !empty($result)) {
+                $ad = $result[0];
+                $this->load->model('User_model');
+                $user = $this->User_model->get_single("id", $ad['user_id']);
+                $alt_email = $this->input->post("email");
+                $alt_phone = $this->input->post("phone");
+            }
+        }
+        return false;
     }
 
 }

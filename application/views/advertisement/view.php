@@ -38,7 +38,8 @@
 
                     </div>
                     <div class="row">
-                        <a class="buy-view align-center text-center" href="<?= base_url() ?>advertisement/buy/<?= $ad['id']; ?>">Request to Buy</a>
+                        <!--<a class="buy-view align-center text-center" href="<?= base_url() ?>advertisement/buy/<?= $ad['id']; ?>">Request to Buy</a>-->
+                        <input type="button" class="buy-view align-center text-center" data-id="<?= $ad['id']; ?>" value="Request to Buy"/>
                     </div>
 
                 </div>

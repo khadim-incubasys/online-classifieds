@@ -41,6 +41,8 @@ class User extends CI_Controller {
             echo json_encode($result);
         } else {
             $data['title'] = "Login";
+            $this->load->model('Advertisement_model');
+            $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1));
             $this->load->view('advertisement/index', $data);
         }
     }
@@ -52,6 +54,8 @@ class User extends CI_Controller {
             echo json_encode($result);
         } else {
             $data['title'] = "Register";
+            $this->load->model('Advertisement_model');
+            $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1));
             $this->load->view('advertisement/index', $data);
         }
     }

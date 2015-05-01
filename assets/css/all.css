@@ -13,6 +13,9 @@ body{
     margin-right: 7%;
 
 }
+#alt-email,#alt-phone{
+    font-size: 23px;
+}
 .header{
     //  background-color:  #B8A7C0;  
     margin-bottom:0px;
@@ -511,6 +514,7 @@ body{
     margin-top: -2%;
     font-size: 15px;
     margin-left: 2%;
+    width: 107%;
 }
 .description-view{
     margin: 3% 2%;

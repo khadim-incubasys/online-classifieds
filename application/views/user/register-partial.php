@@ -1,4 +1,4 @@
-<div class="modal fade register-popup" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+<div class="modal fade register-popup" id="resgiterModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

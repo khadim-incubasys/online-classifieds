@@ -129,9 +129,36 @@ $(document).ready(function () {
         $("#ad-img-view").attr("src", src);
     });
 
-    $(".search-text").on("click", function () {
-        ;
-        $(this).toggleClass('clicked');
+
+    //////////////////////
+    $(".buy-view").on("click", function () {
+        var id=$(this).data("id");
+        var html = '<div id="request">';
+        html += '<p><input id="alt-email" type="email" name="email" placeholder="Alternative Email"> </p><br>';
+        html += '<p><input id="alt-phone" type="text" name="phone" placeholder="Alternative Phone"></p>';
+        html += "</div>"
+        swal({title: 'Send Request To Buy',
+            html: html,
+            showCancelButton: true, confirmButtonText: 'Send', closeOnConfirm: false}, function () {
+            swal.disableButtons();
+            setTimeout(function () {
+                $.ajax(
+                        {
+                            url: base_url+"advertisement/contact_to_buy",
+                            type: "POST",
+                            data: {ad_id:id,email:$("#alt-email").val(),phone:$("#alt-email").val() },
+                            success: function (data, textStatus, jqXHR)
+                            {
+                                swal('Sent!', 'Email has been sent.', 'success');
+                            },
+                            error: function (jqXHR, textStatus, errorThrown)
+                            {
+                                swal('Failed!', 'Something went wrong', 'fail');
+                            }
+                        });
+
+            }, 2000);
+        });
     });
 /////////////////////////
     $("#login_form").submit(function (e)
@@ -210,8 +237,8 @@ $(document).ready(function () {
         readURL(this);
     });
     //////////////////
-    
-     var base_url = $("#base_url").val();
+
+    var base_url = $("#base_url").val();
     var url = base_url + "advertisement/upload_image";
     $('.fileupload').fileupload({
         url: url,
@@ -225,7 +252,7 @@ $(document).ready(function () {
         done: function (e, data) {
             console.log(data);
             $(this).siblings('input[type="hidden"]').val(data.result.files[0]['name']);
-           $(this).siblings("img").attr('src', base_url+"assets/uploads/"+data.result.files[0]['name']);
+            $(this).siblings("img").attr('src', base_url + "assets/uploads/" + data.result.files[0]['name']);
         },
         fail: function (e) {
             console.log(e);
@@ -233,7 +260,7 @@ $(document).ready(function () {
     }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     /////////////////
-    
+
 });
 function readURL(input) {
     if (input.files && input.files[0]) {
