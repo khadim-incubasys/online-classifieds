@@ -117,7 +117,7 @@ class Advertisement_model extends MY_Model {
             $ad = $this->Advertisement_model->get_single("id", $id);
             if ($ad && !empty($ad) && $ad->user_id == $user->id) {
                 if ($this->Advertisement_model->delete("id", $id)) {
-                    $this->session->set_flashdata("message", "Deleted Successfully.");
+                    $this->session->set_flashdata("message", SUCCESS."Deleted Successfully.");
                     return TRUE;
                 }
             }

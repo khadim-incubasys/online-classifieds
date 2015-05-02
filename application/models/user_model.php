@@ -107,7 +107,7 @@ class User_model extends MY_Model {
             if (!empty($image_url))
                 $update_data['image_url'] = $image_url;
             if ($this->update("id", $id, $update_data)) {
-                $this->session->set_flashdata("message", "Saved Successfully");
+                $this->session->set_flashdata("message",  SUCCESS . "Saved Successfully");
                 $user = $this->User_model->get_single("id", $id);
                 if ($user && !empty($user)) {
                     $this->session->set_userdata("user", $user);
@@ -140,7 +140,15 @@ class User_model extends MY_Model {
                     $email_data['name'] = $user->name;
                     $email_data['password'] = $new_password;
                     email_password_changed($email_data);
-                    /////////
+                    ///////// updarting session
+                    $user = $this->User_model->get_single("id", $user->id);
+                    if ($user && !empty($user)) {
+                        $this->session->set_userdata("user", $user);
+                        $this->session->set_userdata('logged_in', TRUE);
+                    } else {
+                        $this->session->set_userdata('logged_in', FALSE);
+                    }
+                    ///////
                     return TRUE;
                 } else {
                     $this->session->set_flashdata("message", ERROR . "Something went wrong.");
