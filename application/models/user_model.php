@@ -84,13 +84,45 @@ class User_model extends MY_Model {
     public function activate($token) {
         if ($this->is_already_exist("token", $token)) {
             if ($this->update("token", $token, array("status" => 1))) {
-                $this->session->set_flashdata("message", SUCCESS."Verified Successfully. Please Login");
+                $this->session->set_flashdata("message", SUCCESS . "Verified Successfully. Please Login");
                 return TRUE;
             }
         } else {
-            $this->session->set_flashdata("message", ERROR."Something went wrong.");
+            $this->session->set_flashdata("message", ERROR . "Something went wrong.");
             return FALSE;
         }
+    }
+
+    public function edit_me() {
+        $id = $this->input->post("id");
+        if (is_numeric($id)) {
+            $update_data = array(
+                "name" => $this->input->post("name"),
+                "phone" => $this->input->post("phone"),
+                "city" => $this->input->post("city"),
+                "country" => $this->input->post("country"),
+                "address" => $this->input->post("address")
+            );
+            $image_url = $this->input->post("image1");
+            if (!empty($image_url))
+                $update_data['image_url'] = $image_url;
+            if ($this->update("id", $id, $update_data)) {
+                $this->session->set_flashdata("message", "Saved Successfully");
+                $user = $this->User_model->get_single("id", $id);
+                if ($user && !empty($user)) {
+                    $this->session->set_userdata("user", $user);
+                    $this->session->set_userdata('logged_in', TRUE);
+                } else {
+                    $this->session->set_userdata('logged_in', FALSE);
+                }
+                return true;
+            } else {
+                $this->session->set_flashdata("message", ERROR . "Something went wrong.");
+                return FALSE;
+            }
+        } else
+            $this->session->set_flashdata("message", ERROR . "User id is missing.");
+        return FALSE;
     }
 
 }

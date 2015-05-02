@@ -11,7 +11,7 @@ class User extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $method = $this->router->method;
-        $auth_methods = array("index", "my_ads", "me", "logout", "settings", "change_password");
+        $auth_methods = array("my_ads", "me", "edit_me", "logout", "settings", "change_password");
         if (in_array($method, $auth_methods)) {
             if (!is_logged_in()) {
                 show_404();
@@ -19,19 +19,32 @@ class User extends CI_Controller {
         }
     }
 
-    public function index() {
-        $data['title'] = SITE_TITLE;
-        $this->load->view('user/index', $data);
-    }
-
     public function my_ads() {
-        $data['title'] = "Login";
+        $data['title'] = "My ADs";
+        $data['user'] = $this->session->userdata("user");
         $this->load->view('user/my_ads', $data);
     }
 
     public function me() {
         $data['title'] = "Khadim-Raath";
+        $data['user'] = $this->session->userdata("user");
         $this->load->view('user/me', $data);
+    }
+
+    public function edit_me() {
+        if ($this->input->server('REQUEST_METHOD') != 'POST') {
+            $data['title'] = "Edit Me";
+            $data['user'] = $this->session->userdata("user");
+            $this->load->view('user/edit', $data);
+        } else {
+            $this->load->model('User_model');
+            $result = $this->User_model->edit_me();
+            if ($result)
+                redirect('user/me');
+            else {
+                redirect('user/edit_me');
+            }
+        }
     }
 
     public function login() {

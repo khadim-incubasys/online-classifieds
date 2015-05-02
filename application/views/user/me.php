@@ -5,37 +5,23 @@
         <div class="main-wrap">
             <div class="user-content">
                 <h2 class="form-header-user">ME</h2>
-                <?php 
-                $user=$this->session->userdata("user");
-                ?>
                 <div id="contact" class="form-user" role="form">
                     <div class="row">
-                        <div class="col-xs-6 form-group">
-
-                            <ul class="demo-2 effect">
-                                <li>
-                                    <input type="button" class="btn-primary btn upload" value="upload" name="upload profile" />
-                                </li>
-                                <li><img class="dp-img img-responsive"  src="<?= base_url() . UPLOAD_PATH . 'me.jpg'; ?>" alt=""/></li>
-                            </ul>
-
-
-<!--                            <img class="dp-img img-responsive" src="<?= base_url() . UPLOAD_PATH . 'cat.jpg'; ?>" alt="" >-->
+                        <div class="col-xs-4 form-group">
+                            <img class="dp-img img-responsive" src="<?= base_url() . UPLOAD_PATH . $user->image_url; ?>" alt="" >
                         </div>
-                      
-                            <h2> <?= $user->name;?></h2>
-                            <h5> <?= $user->email;?> </h5>
-                            <h5><?= $user->phone?></h5>
-                     
+                        <h1> <?= $user->name; ?></h1>
+                        <h3> <?= $user->email; ?> </h3>
+                        <h4><?= $user->phone ?></h4>
+                        <h4><?= $user->city ?> , <?= $user->country ?></h4>
+                        <h4><?= $user->address ?></h4>
                     </div>
-                    
-                    <h5><?= $user->city?> , <?= $user->country?></h5>
-                    <h5><?= $user->address?></h5>
+
+
                     <br />
                     <div class="row">
-                        <div class="col-xs-6 col-md-10 form-group">
-                            <button class="btn btn-primary pull-right " id="custom-btn">Edit</button>
-                            </form>
+                        <div class="col-xs-10 form-group">
+                            <a href="<?= base_url(); ?>user/edit_me" class="btn btn-primary pull-right " id="custom-btn">Edit</a>
                         </div>
                     </div>
                 </div>
