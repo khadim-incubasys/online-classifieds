@@ -20,26 +20,31 @@
                 <div class="col-xs-5">
                     <div class="product-info text-left">
                         <div class="row">
-                            <h3><?= ucfirst($ad['title']); ?></h3>
+                            <h3 id="title-view"><?= ucfirst($ad['title']); ?></h3>
                             <h4> <span class="location-view"><?= ucfirst($ad['location']); ?></span></h4>
                             <div class="row price-view">
                                 Rs. <?= $ad['price']; ?>
                             </div>
                             <div  class="contact-details">
-                                <h4> Contact Details:</h4>
-                                <h5><?= $user->name; ?></h5>
-                                <h5><?= $user->email; ?></h5>
-                                <h5><?= $user->phone; ?></h5>
-                                <h5><?= $user->city; ?> , <?= $user->country; ?></h5>
-                                <h5><?= $user->address; ?></h5>
+                                <h4> <strong> Contact Details:</strong></h4>
+                                <h4><?= $user->name; ?></h4>
+                                <h4><?= $user->email; ?></h4>
+                                <h4><?= $user->phone; ?></h4>
+                                <h4><?= $user->city; ?> , <?= $user->country; ?></h4>
+                                <h4><?= $user->address; ?></h4>
                             </div>
                         </div>
 
 
                     </div>
                     <div class="row">
-                        <!--<a class="buy-view align-center text-center" href="<?= base_url() ?>advertisement/buy/<?= $ad['id']; ?>">Request to Buy</a>-->
-                        <input type="button" class="buy-view align-center text-center" data-id="<?= $ad['id']; ?>" value="Request to Buy"/>
+                        <?php
+                        $class = "buy-view";
+                        if (!is_logged_in()) {
+                            $class = "trigger-login";
+                        }
+                        ?>
+                        <input type="button" class="<?= $class; ?> align-center text-center" data-id="<?= $ad['id']; ?>" value="Request to Buy"/>    
                     </div>
 
                 </div>
@@ -52,7 +57,7 @@
 
                             <span class="description-view">
                                 <h3>Description:</h3>
-                                <?= $ad['description']; ?>
+<?= $ad['description']; ?>
                             </span>
                         </div>
 

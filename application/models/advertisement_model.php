@@ -88,15 +88,24 @@ class Advertisement_model extends MY_Model {
     }
 
     public function contact_to_buy() {
-        $id = $this->input->post("id");
+        $id = $this->input->post("ad_id");
         if (!empty($id)) {
             $result = $this->Advertisement_model->get_single_ad($id);
+          //  print_r($result);die;
             if ($result && !empty($result)) {
                 $ad = $result[0];
                 $this->load->model('User_model');
                 $user = $this->User_model->get_single("id", $ad['user_id']);
                 $alt_email = $this->input->post("email");
                 $alt_phone = $this->input->post("phone");
+
+                $email_data['seller'] = $user;
+                $email_data['ad'] = $ad;
+                $email_data['buyer'] = $this->session->userdata("user");
+                $email_data['alt_email']=  $alt_email;
+                $email_data['alt_phone']=  $alt_phone;
+                email_contact_to_buy($email_data);
+                return true;
             }
         }
         return false;

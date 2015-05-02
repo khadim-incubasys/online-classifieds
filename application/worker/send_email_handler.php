@@ -4,7 +4,9 @@ require_once('PHPMailer/class.phpmailer.php');
 require_once __DIR__ . '/../libraries/vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPConnection;
-$link="application\libraries\vendor-bk\videlalvaro\php-amqplib\PhpAmqpLib\Connection\AMQPConnection";
+
+$link = "application\libraries\vendor-bk\videlalvaro\php-amqplib\PhpAmqpLib\Connection\AMQPConnection";
+
 use PhpAmqpLib\Message\AMQPMessage;
 
 define('HOST', 'localhost');
@@ -61,6 +63,8 @@ function send_mail($email_data) {
     $mail->IsHTML(true);
     $mail->Username = $email_data->from;
     $mail->From = $email_data->from;
+    if (isset($email_data->cc))
+        $mail->AddCC($email_data->cc,"");
     $mail->FromName = $email_data->from_name;
     $mail->Password = $email_data->from_pass;
     $body = $email_data->body;

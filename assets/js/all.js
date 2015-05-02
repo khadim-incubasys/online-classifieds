@@ -123,7 +123,7 @@ $(document).ready(function () {
 //
 //    });
     ///////////// print 2 ////////////////////////////////////////////////////////////////
-    $(".thumb img").on("click", function () {
+    $(".thumb img").hover(function () {
         var src = $(this).attr("src");
         //alert(src); 
         $("#ad-img-view").attr("src", src);
@@ -131,8 +131,12 @@ $(document).ready(function () {
 
 
     //////////////////////
+     $(".trigger-login").on("click", function () {
+        $('.login-popup').modal('show');
+     });
+    /////////////
     $(".buy-view").on("click", function () {
-        var id=$(this).data("id");
+        var id = $(this).data("id");
         var html = '<div id="request">';
         html += '<p><input id="alt-email" type="email" name="email" placeholder="Alternative Email"> </p><br>';
         html += '<p><input id="alt-phone" type="text" name="phone" placeholder="Alternative Phone"></p>';
@@ -144,9 +148,9 @@ $(document).ready(function () {
             setTimeout(function () {
                 $.ajax(
                         {
-                            url: base_url+"advertisement/contact_to_buy",
+                            url: base_url + "advertisement/contact_to_buy",
                             type: "POST",
-                            data: {ad_id:id,email:$("#alt-email").val(),phone:$("#alt-email").val() },
+                            data: {ad_id: id, email: $("#alt-email").val(), phone: $("#alt-phone").val()},
                             success: function (data, textStatus, jqXHR)
                             {
                                 swal('Sent!', 'Email has been sent.', 'success');
