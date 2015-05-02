@@ -20,8 +20,11 @@ class User extends CI_Controller {
     }
 
     public function my_ads() {
-        $data['title'] = "My ADs";
-        $data['user'] = $this->session->userdata("user");
+        $data['title'] = "My Advertisements";
+        $user = $this->session->userdata("user");
+        $data['user'] = $user;
+        $this->load->model('Advertisement_model');
+        $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1, "user_id" => $user->id));
         $this->load->view('user/my_ads', $data);
     }
 

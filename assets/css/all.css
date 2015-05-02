@@ -505,7 +505,7 @@ body{
     font-size: 30px;
     color: sandybrown;
     margin:-1% 0%;
-      padding-left: 4%;
+    padding-left: 4%;
 }
 
 .help-block{
@@ -685,14 +685,14 @@ ol, ul {
     padding-left: 44px  
 }
 .aside-new-ad row{
-   padding: 0px 5px;
+    padding: 0px 5px;
 }
 #browse-img-view{
     width: 255px;
     height: 255px;
 }
 .images-browse{
-     width: 40%;
+    width: 40%;
     display: inline-block;
     vertical-align: top;
     margin: 0 8px;
@@ -700,7 +700,7 @@ ol, ul {
     margin-bottom: 14px;
 }
 .image-view{
-     padding-top: 10px;
+    padding-top: 10px;
     width: 200px;
     height: 200px;
 }
@@ -714,5 +714,35 @@ ol, ul {
     margin-top: 20%;
 }
 .myads{
-   border: 1px solid #D0D0D0;
+    border: 1px solid #D0D0D0;
+    margin: 14px 47px !important;
+}
+.myads .dp-img{
+    margin-left: -14px;
+    height: 170px;
+    width: 170px;
+    margin-bottom: -14px;
+    border-radius: 0px;
+    margin-top: 1px;
+}
+.myads_price{
+    float: right;
+    margin-right: 17px;
+    color: sandybrown;
+}
+.myads-links{
+    float: right;
+}
+.myads-links .link{
+    margin: 3px 17px;
+}
+.myads .h1, .h2, .h3{
+  margin-top: 7px;
+  margin-left: 36px !important;
+}
+.myads-header{
+      margin: 3% 4%;
+}
+.ad-field{
+    margin-top: 9px;
 }

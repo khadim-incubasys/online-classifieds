@@ -97,4 +97,10 @@ class Advertisement extends CI_Controller {
         $upload_handler = new Imageuploader(null, true);
     }
 
+    public function delete_ad($id) {
+        $this->load->model('Advertisement_model');
+        $this->Advertisement_model->delete_it($id);
+        redirect('user/my_ads');
+    }
+
 }

@@ -4,7 +4,9 @@
     <div class="row clearfix">
         <div class="main-wrap">
             <div class="user-content">
-                <h2 class="form-header-user">ME</h2>
+                <h2 class="form-header-user"><?= $title;?>
+                <?php $this->load->view('message'); ?>
+                </h2>
                 <div id="contact" class="form-user" role="form">
                     <form action="<?= base_url(); ?>user/edit_me" method="post" id="form">
                         <input type="hidden" name="id" value="<?= $user->id ?>" />

@@ -91,7 +91,7 @@ class Advertisement_model extends MY_Model {
         $id = $this->input->post("ad_id");
         if (!empty($id)) {
             $result = $this->Advertisement_model->get_single_ad($id);
-          //  print_r($result);die;
+            //  print_r($result);die;
             if ($result && !empty($result)) {
                 $ad = $result[0];
                 $this->load->model('User_model');
@@ -102,13 +102,28 @@ class Advertisement_model extends MY_Model {
                 $email_data['seller'] = $user;
                 $email_data['ad'] = $ad;
                 $email_data['buyer'] = $this->session->userdata("user");
-                $email_data['alt_email']=  $alt_email;
-                $email_data['alt_phone']=  $alt_phone;
+                $email_data['alt_email'] = $alt_email;
+                $email_data['alt_phone'] = $alt_phone;
                 email_contact_to_buy($email_data);
                 return true;
             }
         }
         return false;
+    }
+
+    public function delete_it($id) {
+        if (!empty($id)) {
+            $user = $this->session->userdata("user");
+            $ad = $this->Advertisement_model->get_single("id", $id);
+            if ($ad && !empty($ad) && $ad->user_id == $user->id) {
+                if ($this->Advertisement_model->delete("id", $id)) {
+                    $this->session->set_flashdata("message", "Deleted Successfully.");
+                    return TRUE;
+                }
+            }
+        }
+        $this->session->set_flashdata("message", ERROR . "Something went wrong.");
+        return FALSE;
     }
 
 }

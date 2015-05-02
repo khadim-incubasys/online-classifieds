@@ -5,7 +5,7 @@
         <div class="main-wrap">
             <div class="user-content">
                 <h2 class="form-header-user">Change Password</h2>
-                <form id="form" action="#" method="post" class="form-user" role="form">
+                <form id="form" action="<?= base_url(); ?>user/change_password" method="post" class="form-user" role="form">
                     <div class="row">
                         <div class="col-xs-8 col-md-10 form-group">
                             <input class="form-control" id="password" name="password" placeholder="0ld Password" type="password" data-parsley-required autofocus />
