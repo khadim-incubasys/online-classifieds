@@ -96,8 +96,17 @@ class User extends CI_Controller {
     }
 
     public function change_password() {
-        $data['title'] = "Change Password";
-        $this->load->view('user/change_pwd', $data);
+        if ($this->input->server('REQUEST_METHOD') != 'POST') {
+            $data['title'] = "Change Password";
+            $this->load->view('user/change_pwd', $data);
+        } else {
+            $this->load->model('User_model');
+            if ($this->User_model->update_password()) {
+                redirect('user/me');
+            } else {
+                redirect('user/change_password');
+            }
+        }
     }
 
 }

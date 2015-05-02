@@ -4,19 +4,21 @@
     <div class="row clearfix">
         <div class="main-wrap">
             <div class="user-content">
-                <h2 class="form-header-user">Change Password</h2>
+                <h2 class="form-header-user"><?= $title; ?>
+                    <?php $this->load->view('message'); ?>
+                </h2>
                 <form id="form" action="<?= base_url(); ?>user/change_password" method="post" class="form-user" role="form">
-                    <div class="row">
+                    <div class="row password-field">
                         <div class="col-xs-8 col-md-10 form-group">
                             <input class="form-control" id="password" name="password" placeholder="0ld Password" type="password" data-parsley-required autofocus />
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row password-field">
                         <div class="col-xs-6 col-md-10 form-group">
                             <input class="form-control" id="new-password" name="new-password" placeholder="New Password" type="password" data-parsley-required />
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row password-field">
                         <div class="col-xs-6 col-md-10 form-group">
                             <input class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm Password" type="password" data-parsley-required />
                         </div>

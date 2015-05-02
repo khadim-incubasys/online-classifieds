@@ -359,6 +359,13 @@ body{
 
 .form-control {
     border-radius: 0;
+    width: 100%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 15px;
+}
+.password-field{
+    margin-bottom: 20px;
 }
 .form,.form-user {
     margin:0% 10%;
@@ -371,7 +378,7 @@ body{
     margin-left: 10%;
 }
 .form-header-user{
-    margin: 3% 20%;
+    margin: 3% 19%;
 }
 .navbar-form{
     margin: 0 5%;
@@ -664,11 +671,13 @@ ol, ul {
 }
 .error{
     color: red;
-    margin-left: 14%;
+    margin-left: 2%;
+    font-size: 20px;
 }
 .success{
     color: #090;
-    margin-left: 14%;
+    margin-left: 2%;
+    font-size: 20px;
 }
 
 .main-wrap .main-content-new-ad{
@@ -737,11 +746,11 @@ ol, ul {
     margin: 3px 17px;
 }
 .myads .h1, .h2, .h3{
-  margin-top: 7px;
-  margin-left: 36px !important;
+    margin-top: 7px;
+    margin-left: 36px !important;
 }
 .myads-header{
-      margin: 3% 4%;
+    margin: 3% 4%;
 }
 .ad-field{
     margin-top: 9px;

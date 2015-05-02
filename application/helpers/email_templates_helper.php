@@ -65,7 +65,7 @@ function email_contact_to_buy($email_data) {
     $body = '<div style="font-size:20px">Mr./Ms. ' . $seller->name . ",</div>";
     $body = $body . '<div style="margin-left:150px;">As you posted AD in <strong>' . APP_TITLE . '</strong> </div>';
     $body = $body . '<div>Mr./Ms. <strong>' . $buyer->name . '</strong> has contacted you to purchase your following AD </div>';
-    $body = $body . ' <div>AD Id#: <strong><a href="'.base_url().'advertisement/view/'.$ad['id'].'">' . $ad['id'] . '</strong></a></div>';
+    $body = $body . ' <div>AD Id#: <strong><a href="' . base_url() . 'advertisement/view/' . $ad['id'] . '">' . $ad['id'] . '</strong></a></div>';
     $body = $body . ' <div>AD Title: <strong>' . $ad['title'] . '</strong></div>';
     $body = $body . '<div style="font-size:19px">Buyer Contact Details:</div>';
     $body = $body . ' <div>Name: <strong>' . $buyer->name . '</strong></div>';
@@ -88,6 +88,34 @@ function email_contact_to_buy($email_data) {
     $data['from_name'] = ADMIN_NAME;
     $data['from_pass'] = ADMIN_EMAIL_PASSWORD;
     $data['subject'] = 'Notification';
+    $data['body'] = $body;
+    // calling function in email_sender_helper
+    mail_me($data);
+    return TRUE;
+}
+
+function email_password_changed($email_data) {
+    $CI = & get_instance();
+    $CI->load->helper('email_sender');
+    $body = '<div style="font-size:20px"> Dear Mr./Ms. ' . $email_data['name'] . ",</div>";
+    $body = $body . '<div style="margin-left:150px;">your <strong> password </strong> has been changed in <strong>' . APP_TITLE . '</strong> </div>';
+    $body = $body . '<div style="margin-left:150px;">Your new password is :  <strong>' . $email_data['password'] . '</strong></div>';
+    
+    $body = $body . '<br>For more information clicke here  ' . base_url();
+    $body = $body . '<hr>';
+    $body = $body . 'You have received this notification because you have either subscribed to it, or are involved in it.
+            To change your notification preferences, please click here: http://hostname/my/account';
+    // setting parameters in array
+    $data = array();
+    $data['to'] = $email_data['email'];
+    $data['to_name'] = $email_data['name'];
+    $data['from'] = ADMIN_EMAIL;
+    $data['from_name'] = ADMIN_NAME;
+    $data['from_pass'] = ADMIN_EMAIL_PASSWORD;
+
+
+
+    $data['subject'] = 'Password Changed';
     $data['body'] = $body;
     // calling function in email_sender_helper
     mail_me($data);

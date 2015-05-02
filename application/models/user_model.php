@@ -125,4 +125,36 @@ class User_model extends MY_Model {
         return FALSE;
     }
 
+    public function update_password() {
+        $old_password = $this->input->post("password");
+        $new_password = $this->input->post("new-password");
+        $confirm_password = $this->input->post("confirm-password");
+        $user = $this->session->userdata("user");
+        if (md5($old_password) == $user->password) {
+            if ($new_password == $confirm_password) {
+                //////
+                if ($this->update("id", $user->id, array("password" => md5($new_password)))) {
+                    $this->session->set_flashdata("message", SUCCESS . "Password changed Successfully");
+                    /////// email///////
+                    $email_data['email'] = $user->email;
+                    $email_data['name'] = $user->name;
+                    $email_data['password'] = $new_password;
+                    email_password_changed($email_data);
+                    /////////
+                    return TRUE;
+                } else {
+                    $this->session->set_flashdata("message", ERROR . "Something went wrong.");
+                    return FALSE;
+                }
+                //////////
+            } else {
+                $this->session->set_flashdata("message", ERROR . "Confirm password mismach");
+                return FALSE;
+            }
+        } else {
+            $this->session->set_flashdata("message", ERROR . "Old Password is incorrect");
+            return FALSE;
+        }
+    }
+
 }
