@@ -22,16 +22,26 @@ class Category_model extends MY_Model {
         for ($id = 0; $id < count($categories); $id++) {
             if (!$this->is_already_exist("id", $id + 1)) {
                 $insert = array(
-               "id" => $id + 1,
-                "title" => $categories[$id],
-                'status' => 1
+                    "id" => $id + 1,
+                    "title" => $categories[$id],
+                    'status' => 1
                 );
                 array_push($batch_array, $insert);
             }
         }
-            if (!empty($batch_array)) {
-                $this->db->insert_batch($this->table_name, $batch_array);
-            }
+        if (!empty($batch_array)) {
+            $this->db->insert_batch($this->table_name, $batch_array);
+        }
+    }
+
+    public function list_all() {
+        $where = "cat.status = 1";
+        $join_array = array(
+            array('table' => 'advertisements ad', 'condition' => 'ad.category= cat.title ', 'direction' => 'left'),
+        );
+        $select = 'cat.*, count(ad.id) as ads_count';
+        $result = $this->Category_model->fetch_join_multiple_limit(NULL, NULL, $select, $this->table_name . ' cat', $join_array, $where, "cat.id", '');
+        return $result;
     }
 
 }

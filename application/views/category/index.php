@@ -3,103 +3,34 @@
 <div class="wrapper">
     <div class="main-wrap">
         <div class="aside">
-                <?php $this->load->view('advertisement/power_ads'); ?>
+            <?php $this->load->view('advertisement/power_ads'); ?>
         </div>
         <div class="main-content">
             <h2><?= $title; ?></h2>
             <div class="holder">
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
+                <?php
+                if ($cats && !empty($cats)) {
+                    foreach ($cats as $cat) {
+                        ?>
+                        <div class="block">
+                            <div class="image">
+                                <img class="ad-img" src="<?= base_url() . "assets/images/" . $cat['image_url']; ?>" alt="" class="img-responsive">
+                            </div>
+                            <div class="text-wrap">
+                                <a href="<?= base_url() ?>advertisement/view_by_category/<?= $cat['title'];?>">
+                                    <span class="title"><?= $cat['title'] ?></span>
+                                </a>
+                                <span><?= $cat['ads_count']; ?> ADs</span>
+                            </div>
                         </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">All Lapgops-Dell Inspiron series</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'mobiles.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop2">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop3.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'router.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'led2.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="image">
-                        <img class="ad-img" src="<?= base_url() . UPLOAD_PATH . 'laptop1.jpg'; ?>" alt="" class="img-responsive">
-                        </div>
-                    <div class="text-wrap">
-                        <a href="<?= base_url() ?>category/view_all/laptop">
-                        <span class="title">title</span>
-                        </a>
-                        <span>this is text area</span>
-                    </div>
-                </div>
-               
+                    <?php
+                    }
+                }
+                ?>
+
             </div>
         </div>
-       
+
     </div>
     <div class="pagination">
         <ul>

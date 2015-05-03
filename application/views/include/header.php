@@ -132,7 +132,7 @@
                                                value="<?= (isset($search_text) && !empty($search_text)) ? $search_text : "" ?>"
                                                placeholder="Search Ad here" class="form-control search-text">
                                     </div>
-                                    <button type="submit" class="btn btn-default search-btn" >Search</button>
+                                    <button type="submit" class="btn btn-default search-btn form-control" >Search</button>
                                 </div>
                             </form>
                         </div>

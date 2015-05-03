@@ -18,7 +18,7 @@
                             </div>
                             <div class="text-wrap">
                                 <a href="<?= base_url() ?>advertisement/view/<?= $ad['id']; ?>">
-                                    <span class="title"><?= $ad['title']; ?></span>
+                                    <span class="title"><?= character_limiter($ad['title'],17); ?></span>
                                 </a>
                                 <span class="price">Rs. <?= $ad['price']; ?></span>
                                 <span class="location"><?= $ad['location']; ?></span>

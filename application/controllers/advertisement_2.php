@@ -11,17 +11,18 @@ class Advertisement extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Advertisement_model');
     }
 
     public function index() {
         $data['title'] = "Advertisements";
-
+        $this->load->model('Advertisement_model');
         $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1));
         $this->load->view('advertisement/index', $data);
     }
 
     public function view($id = 1) {
+
+        $this->load->model('Advertisement_model');
         $result = $this->Advertisement_model->get_single_ad($id);
         if ($result && !empty($result)) {
             $data['ad'] = $result[0];
@@ -34,28 +35,9 @@ class Advertisement extends CI_Controller {
         }
     }
 
-    public function view_by_location($location_id) {
-        $this->load->model('Location_model');
-        $loc = $this->Location_model->get_single("id", $location_id);
-        if ($loc && !empty($loc)) {
-            $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1, "location" => $loc->title));
-            $data['title'] = "View By Location:-" . $loc->title;
-            $this->load->view('advertisement/search-results', $data);
-        } else {
-            show_404();
-        }
-    }
-
-    public function view_by_category($cat_id) {
-        $this->load->model('Category_model');
-        $cat = $this->Category_model->get_single("id", $cat_id);
-        if ($cat && !empty($cat)) {
-            $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1, "category" => $cat->title));
-            $data['title'] = "View By Category:-" . $cat->title;
-            $this->load->view('advertisement/search-results', $data);
-        } else {
-            show_404();
-        }
+    public function view_by_location($location) {
+        $data['title'] = $location;
+        $this->load->view('advertisement/index', $data);
     }
 
     public function power_ads() {
@@ -70,7 +52,7 @@ class Advertisement extends CI_Controller {
                 $data['title'] = "New Ad";
                 $this->load->view('advertisement/create', $data);
             } else {
-
+                $this->load->model('Advertisement_model');
 
                 if ($this->Advertisement_model->create_ad())
                     redirect("advertisement");
@@ -85,11 +67,11 @@ class Advertisement extends CI_Controller {
 
     public function contact_to_buy($id = 1) {
         if ($this->input->is_ajax_request()) {
-
+            $this->load->model('Advertisement_model');
             $result = $this->Advertisement_model->contact_to_buy();
             echo json_encode($result);
         } else {
-
+            $this->load->model('Advertisement_model');
             $result = $this->Advertisement_model->get_single_ad($id);
             if ($result && !empty($result)) {
                 $data['ad'] = $result[0];
@@ -104,7 +86,7 @@ class Advertisement extends CI_Controller {
     }
 
     public function search() {
-
+        $this->load->model('Advertisement_model');
         $data = $this->Advertisement_model->search_by();
         $data['title'] = "Search Results";
         $this->load->view('advertisement/search-results', $data);
@@ -116,7 +98,7 @@ class Advertisement extends CI_Controller {
     }
 
     public function delete_ad($id) {
-
+        $this->load->model('Advertisement_model');
         $this->Advertisement_model->delete_it($id);
         redirect('user/my_ads');
     }

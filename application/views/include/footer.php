@@ -12,7 +12,6 @@
                         <li><a href="#"> Privacy Policy</a></li>
                         <li><a href="#"> Terms and Conditions</a></li>
                         <li><a href="<?= base_url(); ?>welcome/contact_us"> Contact</a></li>
-
                     </ul>
                 </div>
                 <?php
@@ -26,7 +25,7 @@
                         if (isset($categories) && !empty($categories)) {
                             foreach ($categories as $key => $val) {
                                 ?>
-                               <li><a href="<?= base_url(); ?>category/view_all/<?= $val['title']; ?>"><?= $val['title']; ?></a></li>
+                               <li><a href="<?= base_url(); ?>advertisement/view_by_category/<?= $val['id']; ?>"><?= $val['title']; ?></a></li>
                                 <?php
                             }
                         }
@@ -40,7 +39,7 @@
                         if (isset($locations) && !empty($locations)) {
                             foreach ($locations as $key => $val) {
                                 ?>
-                                <li><a href="<?= base_url(); ?>location/view_all/<?= $val['title']; ?>"><?= $val['title']; ?></a></li>
+                                <li><a href="<?= base_url(); ?>advertisement/view_by_location/<?= $val['id']; ?>"><?= $val['title']; ?></a></li>
                                 <?php
                             }
                         }

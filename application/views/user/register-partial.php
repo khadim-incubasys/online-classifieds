@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Name</label>
                         <div class="col-xs-5">
-                            <input name="name" type="text" required="" data-parsley-minlength="3" data-parsley-mazlength="20" class="form-control" placeholder="Name" />
+                            <input name="name" type="text" required="" data-parsley-minlength="3" data-parsley-mazlength="35" class="form-control" placeholder="Name" />
                         </div>
                     </div>
                     

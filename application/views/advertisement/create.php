@@ -14,7 +14,7 @@
 
                     <div class="row">
                         <div class="col-xs-8 col-md-12 form-group">
-                            <input class="form-control"  name="title" placeholder="Title" type="text" data-parsley-required autofocus />
+                            <input class="form-control"  name="title" placeholder="Title" maxlength="900" type="text" data-parsley-required autofocus />
                         </div>
                     </div>
                     <div class="row">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8 col-md-12 form-group">
-                            <input class="form-control"  name="price" placeholder="Price" type="number"  min="0" data-parsley-required />
+                            <input class="form-control"  name="price" placeholder="Price" type="number"  min="0" max="9999999999" data-parsley-required />
                         </div>
                     </div>
                     <div class="row">
@@ -56,10 +56,14 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8 col-md-12 form-group">
-                            <input class="form-control"  name="stock" placeholder="Items in Stock" type="number"  min="0" data-parsley-required />
+                            <input class="form-control"  name="stock" placeholder="Items in Stock" type="number"  min="1" max="9999999999" data-parsley-required />
                         </div>
                     </div>
-                    <textarea class="col-xs-8 col-md-12 form-group" id="message" name="description" placeholder="Description" rows="8" required=""></textarea>
+                    <div class="row">
+                        <div class="col-xs-8 col-md-12 form-group">
+                            <textarea class="col-xs-8 col-md-12 form-group" id="message" name="description" maxlength="500" placeholder="Description" rows="9" required=""></textarea>
+                        </div>
+                    </div>
                     <br />
                     <div class="row">
                         <div class="col-xs-8 col-md-12 form-group">
@@ -70,7 +74,9 @@
                 </div>
             </div>
             <div class="main-content-new-ad">
-                <h2>Ad Images</h2>
+                <center>
+                    <h2>Ad Images</h2>
+                </center>
                 <div class="holder">
                     <div class="images-browse">
                         <input type="file" id="pict1" name="files[]" class="fileupload" >
@@ -102,7 +108,7 @@
 </div>
 
 <script>
-   
+
 
 </script>
 
