@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Name</label>
                         <div class="col-xs-5">
-                            <input name="name" type="text" required="" data-parsley-minlength="3" data-parsley-mazlength="35" class="form-control" placeholder="Name" />
+                            <input name="name" type="text" required=""  minlength="3"  maxlength="35" class="form-control" placeholder="Name" />
                         </div>
                     </div>
                     
@@ -22,31 +22,31 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Email</label>
                         <div class="col-xs-5">
-                            <input type="email" data-parsley-type="email" class="form-control" required="" name="email" placeholder="Email" />
+                            <input type="email" data-parsley-type="email" class="form-control" required="" name="email" maxlength="50" placeholder="Email" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Phone</label>
                         <div class="col-xs-5">
-                            <input name="phone" type="tel" required="" data-parsley-minlength="6" data-parsley-mazlength="20" class="form-control" placeholder="Phone Number"/>
+                            <input name="phone" type="tel" required=""  minlength="6"  maxlength="20" class="form-control" placeholder="Phone Number"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Country</label>
                         <div class="col-xs-5">
-                            <input name="country" type="text" required="" data-parsley-minlength="6" data-parsley-mazlength="20" class="form-control" placeholder="Country" />
+                            <input name="country" type="text" required=""  minlength="3"  maxlength="35" class="form-control" placeholder="Country" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label">City</label>
                         <div class="col-xs-5">
-                            <input name="city" type="text" required="" data-parsley-minlength="6" data-parsley-mazlength="20" class="form-control" placeholder="City" />
+                            <input name="city" type="text" required=""  minlength="3"  maxlength="35" class="form-control" placeholder="City" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Address</label>
                         <div class="col-xs-5">
-                            <input name="address" type="text" required="" data-parsley-minlength="6" data-parsley-mazlength="20" class="form-control" placeholder="Address" />
+                            <input name="address" type="text" required=""  minlength="3"  maxlength="200" class="form-control" placeholder="Address" />
                         </div>
                     </div>
                     <div class="form-group">
