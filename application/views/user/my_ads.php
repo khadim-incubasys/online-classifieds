@@ -5,7 +5,7 @@
         <div class="main-wrap">
             <div class="user-content">
                 <h2 class="myads-header"><?= $title; ?>
-                <?php $this->load->view('message'); ?>
+                    <?php $this->load->view('message'); ?>
                 </h2>
                 <?php
                 if ($ads && !empty($ads)) {
@@ -25,14 +25,16 @@
                                 <div class="myads-links"><a class="link" href="<?= base_url(); ?>advertisement/delete_ad/<?= $ad['id']; ?>">Delete</a></div>
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
-                }
+                } else {
+                    ?><center><h4>No My ads</h4></center>
+                <?php }
                 ?>
                 <br />
 
             </div>
-<?php $this->load->view('user/side-bar'); ?>
+            <?php $this->load->view('user/side-bar'); ?>
         </div>
     </div>
 </div>

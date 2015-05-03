@@ -29,7 +29,7 @@ class User extends CI_Controller {
     }
 
     public function me() {
-        $data['title'] = "Khadim-Raath";
+        $data['title'] = "Me";
         $data['user'] = $this->session->userdata("user");
         $this->load->view('user/me', $data);
     }

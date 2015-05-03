@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Register <span class="error"></span></h4>
+                <h4 class="modal-title">Register <center><span class="pop-error"></span></center></h4>
             </div>
 
             <div class="modal-body">

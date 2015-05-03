@@ -671,8 +671,14 @@ ol, ul {
 }
 .error{
     color: red;
+    margin-left: 18%;
+    font-size: 17px;
+    
+}
+.pop-error{
+    color: red;
     margin-left: 2%;
-    font-size: 20px;
+    font-size: 17px;
 }
 .success{
     color: #090;
