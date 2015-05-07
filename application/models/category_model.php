@@ -17,13 +17,14 @@ class Category_model extends MY_Model {
     }
 
     public function seed() {
-        $categories = array('Laptops', 'Mobiles', 'Cats', 'Dogs', 'LEDs', 'Electronics', 'Assesories-m', 'Asseories-l');
+        $categories = array('Laptops', 'Mobiles', 'Cats', 'Dogs', 'LEDs', 'Electronics', 'Mobile Assesories', 'Laptops Asseories');
         $batch_array = array();
         for ($id = 0; $id < count($categories); $id++) {
             if (!$this->is_already_exist("id", $id + 1)) {
                 $insert = array(
                     "id" => $id + 1,
                     "title" => $categories[$id],
+                    'image_url'=>"category".$id.".jpg",
                     'status' => 1
                 );
                 array_push($batch_array, $insert);

@@ -26,7 +26,7 @@
                     </div>  
                     <div class="row">
                         <div class="col-xs-12 col-md-12 form-group">
-                            <textarea class="form-control" id="message" name="message" placeholder="Message" rows="8"></textarea>
+                            <textarea class="form-control" id="message" name="message" placeholder="Message" required rows="8"></textarea>
                         </div>
                     </div>
                     <br />

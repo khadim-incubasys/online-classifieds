@@ -60,6 +60,8 @@ class Advertisement extends CI_Controller {
 
     public function power_ads() {
         $data['title'] = "Power Ads";
+
+        $data['ads'] = $this->Advertisement_model->get_all_custom_where(array("status" => 1));
         $this->load->view('advertisement/index', $data);
     }
 
