@@ -109,4 +109,14 @@ class User extends CI_Controller {
         }
     }
 
+    public function rate_it() {
+        if ($this->input->is_ajax_request()) {
+            $this->load->model("User_rating_model");
+            $res = $this->User_rating_model->rate_it();
+            echo json_encode($res);
+        } else {
+            show_404();
+        }
+    }
+
 }

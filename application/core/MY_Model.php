@@ -39,14 +39,14 @@ class MY_Model extends CI_Model {
         return $query->get($this->table_name)->result_array();
     }
 
-    public function get_all_custom_where($where=false, $select = FALSE, $in_query_arr = FALSE) {
+    public function get_all_custom_where($where = false, $select = FALSE, $in_query_arr = FALSE) {
         $query = $this->db;
         if ($select) {
             $query = $query->select($select);
         }
         if ($in_query_arr)
             $query = $query->where_in($where, $in_query_arr);
-        else if($where)
+        else if ($where)
             $query = $query->where($where);
         return $query->get($this->table_name)->result_array();
     }
@@ -112,8 +112,11 @@ class MY_Model extends CI_Model {
         return $this->db->insert_id();
     }
 
-    public function update($column, $column_value, $data) {
+    public function update($column, $column_value, $data, $column2 = false, $column_value2 = FALSE) {
         $this->db->where($column, $column_value);
+        if ($column_value2) {
+            $this->db->where($column2, $column_value2);
+        }
         $this->db->update($this->table_name, $data);
         return $this->db->affected_rows();
     }
@@ -123,7 +126,6 @@ class MY_Model extends CI_Model {
         $this->db->delete($this->table_name);
         return $this->db->affected_rows();
     }
-
 
     public function record_count($where_column_name = NULL, $where_column_value = NULL) {
         if ($where_column_name == NULL) {
@@ -138,8 +140,6 @@ class MY_Model extends CI_Model {
             return $this->db->count_all_results();
         }
     }
-
-   
 
     public function findByCondition($where, $order_by = false, $group_by = false, $select = '*') {
         $this->db->select($select)
@@ -158,8 +158,6 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-    
-
     public function fetch_limit($limit, $start, $where_column_name = NULL, $where_column_value = NULL, $order_by = false) {
         $this->db->limit($limit, $start);
         if ($where_column_name && $where_column_value) {
@@ -177,7 +175,6 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-    
     public function fetch_join_limit($limit, $start, $ambiguous_alias_select, $table1, $table2, $join_condition, $where_column_name = NULL, $where_column_value = NULL, $direction = '', $where_second_column_name = NULL, $where_second_column_value = NULL, $is_in_query = FALSE) {
         $this->db->select($ambiguous_alias_select);
         $this->db->from($table1);
@@ -201,8 +198,6 @@ class MY_Model extends CI_Model {
         return false;
     }
 
-   
-
     public function fetch_join_triple_limit($limit, $start, $ambiguous_alias_select, $table1, $table2, $join_condition, $table3, $join_condition2, $where = null, $direction = '', $direction2 = '', $group_by = false) {
         $this->db->select($ambiguous_alias_select);
         $this->db->from($table1);
@@ -224,8 +219,6 @@ class MY_Model extends CI_Model {
         }
         return false;
     }
-
-   
 
     public function fetch_join_multiple_limit($limit = NULL, $start = NULL, $ambiguous_alias_select, $table1, $join_array, $where = NULL, $group_by = false, $order_by = false) {
         $this->db->select($ambiguous_alias_select);

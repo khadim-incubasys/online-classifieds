@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label">Address</label>
                         <div class="col-xs-5">
-                            <input name="address" type="text" required=""  minlength="3"  maxlength="200" class="form-control" placeholder="Address" />
+                            <input name="address" type="text" required=""  minlength="3"  maxlength="100" class="form-control" placeholder="Address" />
                         </div>
                     </div>
                     <div class="form-group">

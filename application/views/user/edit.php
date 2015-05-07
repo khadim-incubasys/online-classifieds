@@ -4,8 +4,8 @@
     <div class="row clearfix">
         <div class="main-wrap">
             <div class="user-content">
-                <h2 class="form-header-user"><?= $title;?>
-                <?php $this->load->view('message'); ?>
+                <h2 class="form-header-user"><?= $title; ?>
+                    <?php $this->load->view('message'); ?>
                 </h2>
                 <div id="contact" class="form-user" role="form">
                     <form action="<?= base_url(); ?>user/edit_me" method="post" id="form">
@@ -16,12 +16,12 @@
                                 <input type="file" id="pict2" name="files[]" class="fileupload" >
                                 <input type="hidden" id="image2" name="image1" class="image" />
                             </div>
-                            <input class="edit-me"  name="name" placeholder="Name" value="<?= $user->name; ?>" type="text" data-parsley-required />
-                            <input class="edit-me" disabled="disabled"  name="email" placeholder="Email" value="<?= $user->email; ?>" type="text" data-parsley-required />
-                            <input class="edit-me"  name="phone" placeholder="Phone" value="<?= $user->phone; ?>" type="text" data-parsley-required />
-                            <input class="edit-me"  name="city" placeholder="City" value="<?= $user->city; ?>" type="text" data-parsley-required />
-                            <input class="edit-me"  name="country" placeholder="Country" value="<?= $user->country; ?>" type="text" data-parsley-required />
-                            <input class="edit-me"  name="address" placeholder="Address" value="<?= $user->address; ?>" type="text" data-parsley-required />
+                            <input class="edit-me"  name="name" placeholder="Name" value="<?= $user->name; ?>" type="text" maxlength="35" required="" />
+                            <input class="edit-me" disabled="disabled"  name="email" placeholder="Email" value="<?= $user->email; ?>" type="text"/>
+                            <input class="edit-me"  name="phone" placeholder="Phone" value="<?= $user->phone; ?>" type="text" maxlength="20" required="" />
+                            <input class="edit-me"  name="city" placeholder="City" value="<?= $user->city; ?>" type="text" maxlength="35" required=""/>
+                            <input class="edit-me"  name="country" placeholder="Country" value="<?= $user->country; ?>" type="text" maxlength="35" required=""/>
+                            <input class="edit-me"  name="address" placeholder="Address" value="<?= $user->address; ?>" type="text" maxlength="100" required="" />
                         </div>
 
 

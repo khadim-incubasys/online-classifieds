@@ -9,6 +9,7 @@
         <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?= base_url(); ?>assets/css/sweetalert2.css" rel="stylesheet">
         <link href="<?= base_url(); ?>assets/css/all.css" rel="stylesheet">
+        <link href="<?= base_url(); ?>assets/css/stylesheet.css" rel="stylesheet">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">

@@ -761,3 +761,10 @@ ol, ul {
 .ad-field{
     margin-top: 9px;
 }
+.user-rating{
+    font-size: 20px;
+    margin: 7% 0% !important;
+}
+#rate-it{
+  font-size: 41px;
+}
