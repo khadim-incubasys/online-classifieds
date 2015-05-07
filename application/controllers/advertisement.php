@@ -108,6 +108,17 @@ class Advertisement extends CI_Controller {
                 $data['ad'] = $result[0];
                 $this->load->model('User_model');
                 $data['user'] = $this->User_model->get_single("id", $result[0]['user_id']);
+                ///
+                $this->load->model('User_rating_model');
+                $rating = $this->User_rating_model->get_all_custom_where(array("status" => 1, "user_id" => $result[0]['user_id']), "avg(stars) as rating");
+                ///
+                $data['rating'] = 0;
+                if ($rating && !empty($rating)) {
+                    if ($rating[0]['rating'])
+                        $data['rating'] = $rating[0]['rating'];
+                }
+                $user = $this->session->userdata("user");
+                $data['is_rated'] = $this->User_rating_model->is_already_exist("user_id", $result[0]['user_id'], "rated_by", $user->id);
                 $data['title'] = "View:-" . $result[0]['title'];
                 $this->load->view('advertisement/view', $data);
             } else {
