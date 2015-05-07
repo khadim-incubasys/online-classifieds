@@ -27,6 +27,7 @@
                             </div>
                             <div  class="contact-details">
                                 <h4> <strong> Contact Details:</strong></h4>
+                                <input name="user_id" type="hidden" id="user_id" value="<?= $user->id; ?>" />
                                 <h4><?= $user->name; ?></h4>
                                 <h4><?= $user->email; ?></h4>
                                 <h4><?= $user->phone; ?></h4>
@@ -46,6 +47,11 @@
                         ?>
                         <input type="button" class="<?= $class; ?> align-center text-center" data-id="<?= $ad['id']; ?>" value="Request to Buy"/>    
                     </div>
+                    <input name="is_rated" type="hidden" id="is_rated" value="<?= ($is_rated) ? 1 : 0; ?>"/>
+                    <div class="row user-rating">
+                        Seller Rating: <span id="rating"><?= $rating; ?> </span>
+                        
+                    </div>
 
                 </div>
             </div>
@@ -57,7 +63,7 @@
 
                             <span class="description-view">
                                 <h3>Description:</h3>
-<?= $ad['description']; ?>
+                                <?= $ad['description']; ?>
                             </span>
                         </div>
 

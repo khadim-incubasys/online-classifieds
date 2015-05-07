@@ -131,9 +131,9 @@ $(document).ready(function () {
 
 
     //////////////////////
-     $(".trigger-login").on("click", function () {
+    $(".trigger-login").on("click", function () {
         $('.login-popup').modal('show');
-     });
+    });
     /////////////
     $(".buy-view").on("click", function () {
         var id = $(this).data("id");
@@ -153,7 +153,45 @@ $(document).ready(function () {
                             data: {ad_id: id, email: $("#alt-email").val(), phone: $("#alt-phone").val()},
                             success: function (data, textStatus, jqXHR)
                             {
-                                swal('Sent!', 'Email has been sent.', 'success');
+//                                if ($('#is_rated').val() == 1) {
+//                                    swal('Sent!', 'Email has been sent.', 'success');
+//                                }
+//                                else {
+
+                                var rating = '<div id="rate-it"> Please Rate The Seller <span class="starRating">';
+                                rating += '<input id="rating5" type="radio" name="rating" value="5">';
+                                rating += '<label for="rating5">5</label>';
+                                rating += '<input id="rating4" type="radio"  name="rating" value="4">';
+                                rating += '<label for="rating4">4</label>';
+                                rating += '<input id="rating3" type="radio" name="rating" value="3">';
+                                rating += '<label for="rating3">3</label>';
+                                rating += '<input id="rating2" type="radio" name="rating" value="2">';
+                                rating += '<label for="rating2">2</label>';
+                                rating += '<input id="rating1" type="radio" name="rating" value="1">';
+                                rating += '<label for="rating1">1</label>';
+                                rating += '</span> </div>';
+                                swal({title: 'Email Sent Successfully',
+                                    html: rating,showCancelButton: true, cancelButtonText: 'Ok',
+                                    confirmButtonText: 'Submit', closeOnConfirm: false},
+                                function () {
+                                    swal.disableButtons();
+                                    setTimeout(function () {
+                                        $.ajax(
+                                                {
+                                                    url: base_url + "user/rate_it",
+                                                    type: "POST",
+                                                    data: {ad_id: id, user_id: $("#user_id").val(), stars: $('input[type="radio"]').val()},
+                                                    success: function (data, textStatus, jqXHR)
+                                                    {
+                                                        /////
+                                                    }
+                                                }
+                                        );
+                                    }, 2000);
+                                }
+                                );
+                                //}
+                                // swal.
                             },
                             error: function (jqXHR, textStatus, errorThrown)
                             {
