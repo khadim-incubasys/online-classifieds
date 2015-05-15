@@ -100,7 +100,7 @@ function email_password_changed($email_data) {
     $body = '<div style="font-size:20px"> Dear Mr./Ms. ' . $email_data['name'] . ",</div>";
     $body = $body . '<div style="margin-left:150px;">your <strong> password </strong> has been changed in <strong>' . APP_TITLE . '</strong> </div>';
     $body = $body . '<div style="margin-left:150px;">Your new password is :  <strong>' . $email_data['password'] . '</strong></div>';
-    
+
     $body = $body . '<br>For more information clicke here  ' . base_url();
     $body = $body . '<hr>';
     $body = $body . 'You have received this notification because you have either subscribed to it, or are involved in it.
@@ -116,6 +116,40 @@ function email_password_changed($email_data) {
 
 
     $data['subject'] = 'Password Changed';
+    $data['body'] = $body;
+    // calling function in email_sender_helper
+    mail_me($data);
+    return TRUE;
+}
+
+function email_contact_us($email_data) {
+    $CI = & get_instance();
+    $CI->load->helper('email_sender');
+    $body = '<div style="font-size:20px"> Hi Admin!</div>';
+    $body = $body . '<div style="margin-left:150px;">Mr./Ms <strong> ' . $email_data['name'] . ' </strong> has leave a message for you from your website <strong>' . APP_TITLE . '</strong> </div>';
+    $body = $body . '<div style="margin-left:150px;"><strong>Message Details :</strong></div>';
+
+    $body = $body . '<div style="margin-left:150px;">Name: <strong>' . $email_data['name'] . ' </strong></div>';
+    $body = $body . '<div style="margin-left:150px;">Email:<strong>' . $email_data['email'] . ' </strong></div>';
+    $body = $body . '<div style="margin-left:150px;">Phone:<strong>' . $email_data['phone'] . ' </strong></div>';
+    $body = $body . '<div style="margin-left:150px;">Message:<strong>' . $email_data['message'] . ' </strong></div>';
+
+    $body = $body . '<br>For more information clicke here  ' . base_url();
+    $body = $body . '<hr>';
+    $body = $body . 'You have received this notification because you have either subscribed to it, or are involved in it.
+            To change your notification preferences, please click here: http://hostname/my/account';
+    // setting parameters in array
+    $data = array();
+    $data['to'] = ADMIN_EMAIL;
+    $data['to_name'] = ADMIN_NAME;
+    $data['from'] = ADMIN_EMAIL;
+    $data['from_name'] = ADMIN_NAME;
+    $data['from_pass'] = ADMIN_EMAIL_PASSWORD;
+    $data['cc'] = $email_data['cc'];
+
+
+
+    $data['subject'] = 'New Message';
     $data['body'] = $body;
     // calling function in email_sender_helper
     mail_me($data);

@@ -17,7 +17,7 @@
                                 <img class="ad-img" src="<?= base_url() . "assets/images/" . $cat['image_url']; ?>" alt="" class="img-responsive">
                             </div>
                             <div class="text-wrap">
-                                <a href="<?= base_url() ?>advertisement/view_by_category/<?= $cat['title'];?>">
+                                <a href="<?= base_url() ?>advertisement/view_by_category/<?= $cat['id'];?>">
                                     <span class="title"><?= $cat['title'] ?></span>
                                 </a>
                                 <span><?= $cat['ads_count']; ?> ADs</span>

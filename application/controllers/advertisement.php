@@ -36,8 +36,10 @@ class Advertisement extends CI_Controller {
                 if ($rating[0]['rating'])
                     $data['rating'] = $rating[0]['rating'];
             }
-            $user = $this->session->userdata("user");
-            $data['is_rated'] = $this->User_rating_model->is_already_exist("user_id", $result[0]['user_id'], "rated_by", $user->id);
+            if (is_logged_in()) {
+                $user = $this->session->userdata("user");
+                $data['is_rated'] = $this->User_rating_model->is_already_exist("user_id", $result[0]['user_id'], "rated_by", $user->id);
+            }
             $data['title'] = "View:-" . $result[0]['title'];
             $this->load->view('advertisement/view', $data);
         } else {
@@ -83,8 +85,6 @@ class Advertisement extends CI_Controller {
                 $data['title'] = "New Ad";
                 $this->load->view('advertisement/create', $data);
             } else {
-
-
                 if ($this->Advertisement_model->create_ad())
                     redirect("advertisement");
                 else {
@@ -117,8 +117,10 @@ class Advertisement extends CI_Controller {
                     if ($rating[0]['rating'])
                         $data['rating'] = $rating[0]['rating'];
                 }
-                $user = $this->session->userdata("user");
-                $data['is_rated'] = $this->User_rating_model->is_already_exist("user_id", $result[0]['user_id'], "rated_by", $user->id);
+                if (is_logged_in()) {
+                    $user = $this->session->userdata("user");
+                    $data['is_rated'] = $this->User_rating_model->is_already_exist("user_id", $result[0]['user_id'], "rated_by", $user->id);
+                }
                 $data['title'] = "View:-" . $result[0]['title'];
                 $this->load->view('advertisement/view', $data);
             } else {
@@ -129,9 +131,16 @@ class Advertisement extends CI_Controller {
 
     public function search() {
 
-        $data = $this->Advertisement_model->search_by();
-        $data['title'] = "Search Results";
-        $this->load->view('advertisement/search-results', $data);
+        if ($this->input->is_ajax_request()) {
+            $data = $this->Advertisement_model->search_by();
+            $data['title'] = "Search Results";
+            $ads_view = $this->load->view('advertisement/search_partial', $data, TRUE);
+            echo json_encode($ads_view);
+        } else {
+            $data = $this->Advertisement_model->search_by();
+            $data['title'] = "Search Results";
+            $this->load->view('advertisement/search-results', $data);
+        }
     }
 
     public function upload_image() {

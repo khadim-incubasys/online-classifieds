@@ -5,7 +5,7 @@
         <div class="aside">
             <?php $this->load->view('advertisement/power_ads'); ?>
         </div>
-        <div class="main-content">
+        <div class="main-content" id="results">
             <h2><?= $title; ?></h2>
             <div class="holder ads">
                 <?php

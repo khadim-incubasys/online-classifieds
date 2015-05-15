@@ -56,12 +56,14 @@ class Advertisement_model extends MY_Model {
     }
 
     public function search_by() {
-        $below_range = $this->input->get('below-range');
-        $up_range = $this->input->get('up-range');
+        $below_range = $this->input->get('below_range');
+        $up_range = $this->input->get('up_range');
         $category = $this->input->get('category');
         $location = $this->input->get('location');
-        $search_text = $this->input->get('search-text');
-        $where = array("status" => 1);
+        $search_text = $this->input->get('search_text');
+        //print_r($_GET);die;
+        $data['ads'] = array();
+        $where = array();
         if (!empty($below_range)) {
             $where['price >= '] = $below_range;
             $data['below_range'] = $below_range;
@@ -82,8 +84,10 @@ class Advertisement_model extends MY_Model {
             $where['title like '] = '%' . $search_text . '%';
             $data['search_text'] = $search_text;
         }
-        $data['ads'] = $this->Advertisement_model->get_all_custom_where($where);
-
+        if (!empty($where)) {
+            $where["status"] = 1;
+            $data['ads'] = $this->Advertisement_model->get_all_custom_where($where);
+        }
         return $data;
     }
 
@@ -117,7 +121,7 @@ class Advertisement_model extends MY_Model {
             $ad = $this->Advertisement_model->get_single("id", $id);
             if ($ad && !empty($ad) && $ad->user_id == $user->id) {
                 if ($this->Advertisement_model->delete("id", $id)) {
-                    $this->session->set_flashdata("message", SUCCESS."Deleted Successfully.");
+                    $this->session->set_flashdata("message", SUCCESS . "Deleted Successfully.");
                     return TRUE;
                 }
             }

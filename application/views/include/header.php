@@ -90,17 +90,17 @@
                                 <div class="navbar-form navbar" role="search">
                                     <div class="form-group form-inline">
                                         <label for="below-range">Price Range:</label>
-                                        <input type="number" class="form-control price-range"  min="0"
+                                        <input type="number" class="form-control price-range search-filter"  min="0"
                                                value="<?= (isset($below_range) && !empty($below_range)) ? $below_range : "" ?>"
-                                               placeholder="From" name="below-range" />
+                                               placeholder="From" name="below_range" id="below_range" />
                                         --
-                                        <input type="number" name="up-range" min="0"
+                                        <input type="number" name="up_range" id="up_range" min="0"
                                                value="<?= (isset($up_range) && !empty($up_range)) ? $up_range : "" ?>"
-                                               placeholder="To" class="form-control price-range"/>
+                                               placeholder="To" class="form-control price-range search-filter"/>
                                     </div>      
                                     <div class="form-group">
                                         <label for="location">Location:</label>
-                                        <select name="location" class="form-control form-inline">
+                                        <select name="location" id="location" class="form-control form-inline search-filter">
                                             <option value="">Select</option>
                                             <?php
                                             if (isset($locations) && !empty($locations)) {
@@ -115,7 +115,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="category">Category:</label>
-                                        <select name="category" class="form-control form-inline">
+                                        <select name="category" id="category" class="form-control form-inline search-filter">
                                             <option value="">Select</option>
                                             <?php
                                             if (isset($categories) && !empty($categories)) {
@@ -129,9 +129,9 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="search-text"
+                                        <input type="text" name="search_text" id="search_text"
                                                value="<?= (isset($search_text) && !empty($search_text)) ? $search_text : "" ?>"
-                                               placeholder="Search Ad here" class="form-control search-text">
+                                               placeholder="Search Ad here" class="form-control search-text search-filter">
                                     </div>
                                     <button type="submit" class="btn btn-default search-btn form-control" >Search</button>
                                 </div>

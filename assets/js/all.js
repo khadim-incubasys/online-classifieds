@@ -171,7 +171,7 @@ $(document).ready(function () {
                                 rating += '<label for="rating1">1</label>';
                                 rating += '</span> </div>';
                                 swal({title: 'Email Sent Successfully',
-                                    html: rating,showCancelButton: true, cancelButtonText: 'Ok',
+                                    html: rating, showCancelButton: true, cancelButtonText: 'Ok',
                                     confirmButtonText: 'Submit', closeOnConfirm: false},
                                 function () {
                                     swal.disableButtons();
@@ -302,6 +302,36 @@ $(document).ready(function () {
     }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     /////////////////
+    $(".search-filter").on("change", function () {
+        var below_range = $('#below_range').val();
+        var up_range = $('#up_range').val();
+        var location = $('#location').val();
+        var category = $('#category').val();
+        var search_text = $('#search_text').val();
+        console.log(location);
+        $.ajax(
+                {
+                    url: base_url + "advertisement/search",
+                    type: "get",
+                    data: {below_range: below_range, up_range: up_range, category: category, location: location, search_text: search_text},
+                    success: function (data, textStatus, jqXHR)
+                    {
+                        var result = JSON.parse(data);
+                        console.log(result);
+                        $("#results").html(result);
+                        $('.pagination').css("display", "none");
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        console.log("error");
+                    }
+                });
+    });
+    $('.search-btn').on('click', function () {
+
+    });
+    ///////////////
 
 });
 function readURL(input) {

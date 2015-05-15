@@ -8,7 +8,7 @@
             </div>
             <div class="main-content">
                 <h2 class="form-header">About Us</h2>
-                <div class="form">
+                <div class="about-us">
                     Sample, sample, Sample, sample, Sample, sample, Sample, sample,
                     Sample, sample, Sample, sample, Sample, sample, Sample, sample,
                     Sample, sample, Sample, sample, Sample, sample, Sample, sample, Sample, sample,
