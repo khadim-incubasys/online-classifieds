@@ -48,9 +48,12 @@
                         <input type="button" class="<?= $class; ?> align-center text-center" data-id="<?= $ad['id']; ?>" value="Request to Buy"/>    
                     </div>
                     <input name="is_rated" type="hidden" id="is_rated" value="<?= (isset($is_rated) && $is_rated) ? 1 : 0; ?>"/>
+                    
                     <div class="row user-rating">
-                        Seller Rating: <span id="rating"><?= $rating; ?> </span>
-                        
+                        Seller Rating: <span id="rating">
+                            <?= $rating; ?> 
+                        </span>
+
                     </div>
 
                 </div>

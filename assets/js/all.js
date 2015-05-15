@@ -136,6 +136,7 @@ $(document).ready(function () {
     });
     /////////////
     $(".buy-view").on("click", function () {
+        var stars=0;
         var id = $(this).data("id");
         var html = '<div id="request">';
         html += '<p><input id="alt-email" type="email" name="email" placeholder="Alternative Email"> </p><br>';
@@ -158,21 +159,17 @@ $(document).ready(function () {
 //                                }
 //                                else {
 
-                                var rating = '<div id="rate-it"> Please Rate The Seller <span class="starRating">';
-                                rating += '<input id="rating5" type="radio" name="rating" value="5">';
-                                rating += '<label for="rating5">5</label>';
-                                rating += '<input id="rating4" type="radio"  name="rating" value="4">';
-                                rating += '<label for="rating4">4</label>';
-                                rating += '<input id="rating3" type="radio" name="rating" value="3">';
-                                rating += '<label for="rating3">3</label>';
-                                rating += '<input id="rating2" type="radio" name="rating" value="2">';
-                                rating += '<label for="rating2">2</label>';
-                                rating += '<input id="rating1" type="radio" name="rating" value="1">';
-                                rating += '<label for="rating1">1</label>';
-                                rating += '</span> </div>';
+                                var rating = '<div id="rate-it"> Please Rate The Seller';
+                                rating += '<div class="rating aaa">';
+                                rating += '<span><input type="radio" name="rating" id="str5" value="5"><label for="str5">☆</label></span>';
+                                rating += '<span><input type="radio" name="rating" id="str4" value="4"><label for="str4">☆</label></span>';
+                                rating += '<span><input type="radio" name="rating" id="str3" value="3"><label for="str3">☆</label></span>';
+                                rating += '<span><input type="radio" name="rating" id="str2" value="2"><label for="str2">☆</label></span>';
+                                rating += '<span><input type="radio" name="rating" id="str1" value="1"><label for="str1">☆</label></span>';
+                                rating += '</div>';
                                 swal({title: 'Email Sent Successfully',
                                     html: rating, showCancelButton: true, cancelButtonText: 'Ok',
-                                    confirmButtonText: 'Submit', closeOnConfirm: false},
+                                    confirmButtonText: 'Submit', closeOnConfirm: true},
                                 function () {
                                     swal.disableButtons();
                                     setTimeout(function () {
@@ -180,23 +177,37 @@ $(document).ready(function () {
                                                 {
                                                     url: base_url + "user/rate_it",
                                                     type: "POST",
-                                                    data: {ad_id: id, user_id: $("#user_id").val(), stars: $('input[type="radio"]').val()},
+                                                    data: {ad_id: id, user_id: $("#user_id").val(), stars:stars},
                                                     success: function (data, textStatus, jqXHR)
                                                     {
-                                                        /////
+                                                        //return true;
                                                     }
                                                 }
                                         );
-                                    }, 2000);
+                                    }, 1000);
                                 }
                                 );
                                 //}
                                 // swal.
+                                $(".rating input:radio").attr("checked", false);
+                                $('.rating input').click(function () {
+                                    $(this).attr("checked", true);
+                                    stars=$(this).val();
+                                    $(".rating span").removeClass('checked');
+                                    $(this).parent().addClass('checked');
+                                });
+
+                                $('input:radio').change(
+                                        function () {
+                                            var userRating = this.value;
+                                            //alert(userRating);
+                                        });
                             },
                             error: function (jqXHR, textStatus, errorThrown)
                             {
                                 swal('Failed!', 'Something went wrong', 'fail');
                             }
+
                         });
 
             }, 2000);
@@ -332,6 +343,20 @@ $(document).ready(function () {
 
     });
     ///////////////
+//  Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+            function () {
+                var userRating = this.value;
+                alert(userRating);
+            });
+
+    ////
 
 });
 function readURL(input) {
