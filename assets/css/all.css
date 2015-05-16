@@ -27,7 +27,7 @@ body{
 .container{
     width: 100% !important;
     padding-left:0; 
-    padding-right: 0;
+    padding-right: 2px;
 }
 .jumbotron.header .top-bar{
     margin: 0 0 10px;
