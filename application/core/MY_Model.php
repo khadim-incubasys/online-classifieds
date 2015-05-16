@@ -292,10 +292,13 @@ class MY_Model extends CI_Model {
         /////////////////////////////////////
     }
 
-    public function is_already_exist($column_name, $columns_value, $column2 = FALSE, $columns_value2 = FALSE) {
+    public function is_already_exist($column_name, $columns_value, $column2 = FALSE, $columns_value2 = FALSE, $column3 = FALSE, $columns_value3 = FALSE) {
         $this->db->where($column_name, $columns_value);
         if ($column2) {
             $this->db->where($column2, $columns_value2);
+        }
+        if ($column3) {
+            $this->db->where($column3, $columns_value3);
         }
         $query = $this->db->get($this->table_name);
         if ($query->num_rows() > 0) {

@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-xs-5">
-                    <div class="product-info text-left">
+                    <!--<div class="product-info text-left">-->
                         <div class="row">
                             <h3 id="title-view"><?= ucfirst($ad['title']); ?></h3>
                             <h4> <span class="location-view"><?= ucfirst($ad['location']); ?></span></h4>
@@ -35,10 +35,6 @@
                                 <h4><?= $user->address; ?></h4>
                             </div>
                         </div>
-
-
-                    </div>
-                    <div class="row">
                         <?php
                         $class = "buy-view";
                         if (!is_logged_in()) {
@@ -46,17 +42,17 @@
                         }
                         ?>
                         <input type="button" class="<?= $class; ?> align-center text-center" data-id="<?= $ad['id']; ?>" value="Request to Buy"/>    
-                    </div>
-                    <input name="is_rated" type="hidden" id="is_rated" value="<?= (isset($is_rated) && $is_rated) ? 1 : 0; ?>"/>
-                    
-                    <div class="row user-rating">
-                        Seller Rating: <span id="rating">
-                            <?= $rating; ?> 
-                        </span>
 
-                    </div>
+                        <input name="is_rated" type="hidden" id="is_rated" value="<?= (isset($is_rated) && $is_rated) ? 1 : 0; ?>"/>
 
-                </div>
+
+                        <div class="row user-rating">
+                            <div class="part">
+                                <span>User Rating:</span><div class="stars" data-percent="<?= $rating; ?>"></div><br>
+                            </div>
+
+                        </div>
+                    </div>
             </div>
             <div class="row">
                 <div class="holder">
@@ -78,4 +74,12 @@
         </div>
     </div>
 </div>
+<script>
+    $(window).load(function () {
+        var val = $(".stars").data('percent');
+        console.log(val);
+        var style = '<style>.stars[data-percent="' + val + '"]:BEFORE {width:' + val + '%;}</style>';
+        $('.part').append(style);
+    });
+</script>
 <?php $this->load->view('include/footer'); ?>
