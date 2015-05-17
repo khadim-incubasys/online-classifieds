@@ -9,7 +9,9 @@
             $locations = get_locations();
             ?> 
             <div class="aside-new-ad">
-                <h2>Ad Information</h2>
+                <center>
+                    <h2 id="ad-info-h">Ad Information</h2>
+                </center>
                 <div class="holder">
 
                     <div class="row">

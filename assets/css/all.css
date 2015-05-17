@@ -709,7 +709,7 @@ ol, ul {
     height: 255px;
 }
 .images-browse{
-    width: 40%;
+    width: 46%;
     display: inline-block;
     vertical-align: top;
     margin: 0 8px;
@@ -718,8 +718,8 @@ ol, ul {
 }
 .image-view{
     padding-top: 10px;
-    width: 200px;
-    height: 200px;
+    width:100%;
+    height: 238px;
 }
 .dp-browse{
     padding-top: 10px;
@@ -826,10 +826,18 @@ ol, ul {
     box-shadow: none;
     font-size: 17px;
     font-weight: 500;
-    /* border-radius: 5px; */
+    border-radius: 0px;
     padding: 10px 32px;
-    margin: 54px 5px;
+    margin: 5px 5px;
     cursor: pointer;
+}
+.aaa{
+    margin-left: 15px !important;
+    margin-top: 9% !important;
+    margin-bottom: 18% !important
+}
+#request{
+    margin: 4% 2%;
 }
 /////////////////////////
 
@@ -850,7 +858,7 @@ the only important parts are display and width, which force the container to con
     width: auto;
     position: relative;
     font-size: 40px;
-   // border: 2px outset black;
+    // border: 2px outset black;
     border-radius: 5px;
     /* background-color: navy; */
     margin: 5px;
@@ -937,4 +945,8 @@ turn "OFF" all stars after the one the user is hovering over.
 .stars:NOT([data-percent]):BEFORE,
 .stars[data-percent="0"]:BEFORE {
     display:none;
+}
+
+#ad-info-h{
+    margin: 4.4% 2%;
 }

@@ -26,11 +26,11 @@ class User_rating_model extends MY_Model {
             "ad_id" => $this->input->post('ad_id'),
             "status" => 1
         );
-        if ($this->User_rating_model->is_already_exist("user_id", $user_id, "rated_by", $user->id)) {
-            return $this->update("user_id", $user_id, $insert, "rated_by", $user->id);
-        } else {
+//        if ($this->User_rating_model->is_already_exist("user_id", $user_id, "rated_by", $user->id)) {
+//            return $this->update("user_id", $user_id, $insert, "rated_by", $user->id);
+//        } else {
             return $this->create($insert);
-        }
+       // }
     }
 
 }
