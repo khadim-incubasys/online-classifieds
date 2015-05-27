@@ -52,9 +52,9 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','session','form_validation','Rabbitmq');
+$autoload['libraries'] = array('database','session','form_validation','Rabbitmq','HybridAuthLib');
 
-
+        
 /*
 | -------------------------------------------------------------------
 |  Auto-load Helper Files
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database','session','form_validation','Rabbitmq'
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('form', 'url','data', 'date', 'array', 'text','email_sender','email_templates','auth');
+$autoload['helper'] = array('form', 'url','data', 'date', 'array', 'text','email_sender','email_templates','auth','social_logon');
 
 
 /*

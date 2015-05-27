@@ -54,9 +54,13 @@ class User_model extends MY_Model {
         }
     }
 
-    public function user_login() {
-        $email = $this->input->post('email');
-        $password = md5($this->input->post('password'));
+    public function user_login($email = FALSE, $password = FALSE) {
+        if (!$email) {
+            $email = $this->input->post('email');
+            $password = md5($this->input->post('password'));
+        } else if ($password) {
+            $password = md5($password);
+        }
 
         $this->db->where("email", $email);
         $this->db->where("password", $password);
@@ -107,7 +111,7 @@ class User_model extends MY_Model {
             if (!empty($image_url))
                 $update_data['image_url'] = $image_url;
             if ($this->update("id", $id, $update_data)) {
-                $this->session->set_flashdata("message",  SUCCESS . "Saved Successfully");
+                $this->session->set_flashdata("message", SUCCESS . "Saved Successfully");
                 $user = $this->User_model->get_single("id", $id);
                 if ($user && !empty($user)) {
                     $this->session->set_userdata("user", $user);

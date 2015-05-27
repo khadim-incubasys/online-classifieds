@@ -49,7 +49,12 @@ class User extends CI_Controller {
             }
         }
     }
-
+    //////////////////////
+    public function social_logon($provider) {
+        $response = social_login($provider);
+        var_dump($response);die;
+    }
+    //////////////////////
     public function login() {
         if ($this->input->is_ajax_request()) {
             $this->load->model('User_model');
