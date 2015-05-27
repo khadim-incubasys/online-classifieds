@@ -42,11 +42,6 @@ class Welcome extends CI_Controller {
         $this->load->view('about-us', $data);
     }
 
-    public function test() {
-        $data['title'] = "test page";
-        $this->load->view('test', $data);
-    }
-
 }
 
 /* End of file welcome.php */

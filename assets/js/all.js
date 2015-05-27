@@ -267,7 +267,7 @@ $(document).ready(function () {
                         var result = JSON.parse(data);
                         console.log(result);
                         if (result['result'] == true) {
-                            $(".error").html();
+                            $(".pop-error").html();
                             var html = "<center><h2>Registered Successfully</h2>";
                             html += "<div>An email has been sent.Please verify, and Login </div> </center>";
 
@@ -275,7 +275,7 @@ $(document).ready(function () {
                             //window.location.href=base_url+"user/login";
                         }
                         else {
-                            $(".error").text(result['message']);
+                            $(".pop-error").text(result['message']);
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown)

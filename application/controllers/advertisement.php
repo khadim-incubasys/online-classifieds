@@ -38,12 +38,13 @@ class Advertisement extends CI_Controller {
                     $data['rating'] = $rate;
                 }
             }
+            $data['is_rated']=TRUE;
             if (is_logged_in()) {
                 $user = $this->session->userdata("user");
-                $data['is_rated'] = $this->User_rating_model->is_already_exist("ad_id", $result[0]['id'], "rated_by", $user->id, "user_id", $user->id);
+                if ($user->id != $result[0]['user_id'])
+                    $data['is_rated'] = $this->User_rating_model->is_already_exist("ad_id", $result[0]['id'], "rated_by", $user->id);
             }
-            //var_dump($data['is_rated']);die;
-            
+
             $data['title'] = "View:-" . $result[0]['title'];
             $this->load->view('advertisement/view', $data);
         } else {
