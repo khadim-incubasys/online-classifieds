@@ -12,7 +12,7 @@
                         <input type="hidden" name="id" value="<?= $user->id ?>" />
                         <div class="row">
                             <div class="col-xs-4 form-group">
-                                <img class="dp-img img-responsive" src="<?= base_url() . UPLOAD_PATH . $user->image_url; ?>" alt="" >
+                                <img class="dp-img img-responsive" src="<?=  $user->image_url; ?>" alt="" >
                                 <input type="file" id="pict2" name="files[]" class="fileupload" >
                                 <input type="hidden" id="image2" name="image1" class="image" />
                             </div>

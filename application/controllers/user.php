@@ -17,6 +17,9 @@ class User extends CI_Controller {
                 show_404();
             }
         }
+        
+        //Hybrid_Provider_Adapter::getUserProfile();
+        //die('user..cons');
     }
 
     public function my_ads() {
