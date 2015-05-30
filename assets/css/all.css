@@ -662,8 +662,12 @@ h2 {
 #login_form .form-control{
     width: 300px;
 }
-#register-btn,#login-btn{
-    width: 218px;
+#register-btn,#login-btn,#fb-btn{
+    width: 137%;
+    
+}
+#fb-btn{
+   background: #4e69a2;
 }
 /////////
 ol, ul {

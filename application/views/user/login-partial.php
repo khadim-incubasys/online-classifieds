@@ -31,6 +31,11 @@
                             <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <a href="<?= base_url(); ?>user/social_logon/Facebook" id="fb-btn" class="btn btn-primary">Facebook</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
