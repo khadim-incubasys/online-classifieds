@@ -17,3 +17,10 @@ function get_categories() {
     $ci->load->model('Category_model');
     return $ci->Category_model->get_all_custom_where(FALSE, "id , title");
 }
+
+function get_friends() {
+    $ci = get_instance();
+    $ci->load->model('Friends_model');
+    $result = $ci->Friends_model->get_friends();
+    return $result;
+}

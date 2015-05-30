@@ -87,7 +87,26 @@
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <form method="get" action="<?= base_url(); ?>advertisement/search">
+
+
                                 <div class="navbar-form navbar" role="search">
+
+                                    <div class="form-group">
+                                        <label for="location">FB Friends:</label>
+                                        <select name="location" id="friends" class="form-control form-inline search-filter">
+                                            <option value="">Select</option>
+                                            <?php
+                                            $friends = get_friends();
+                                            if ($friends && !empty($friends)) {
+                                                foreach ($friends as $friend) {
+                                                    ?>
+                                                    <option value="<?= $friend['id'] ?>"><?= $friend['name'] ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                     <div class="form-group form-inline">
                                         <label for="below-range">Price Range:</label>
                                         <input type="number" class="form-control price-range search-filter"  min="0"

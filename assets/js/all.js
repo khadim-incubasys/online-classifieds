@@ -314,18 +314,50 @@ $(document).ready(function () {
     }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     /////////////////
+    //friends
+    $("#friends").on("change", function () {
+//        /////
+//        var below_range = $('#below_range').val();
+//        var up_range = $('#up_range').val();
+//        var location = $('#location').val();
+//        var category = $('#category').val();
+//        var search_text = $('#search_text').val();
+//        var friend = $('#friends').val();
+//        console.log(location);
+//        $.ajax(
+//                {
+//                    url: base_url + "advertisement/search",
+//                    type: "get",
+//                    data: {below_range: below_range, up_range: up_range, category: category, location: location, search_text: search_text,friend_id:friend},
+//                    success: function (data, textStatus, jqXHR)
+//                    {
+//                        var result = JSON.parse(data);
+//                        console.log(result);
+//                        $("#results").html(result);
+//                        $('.pagination').css("display", "none");
+//
+//                    },
+//                    error: function (jqXHR, textStatus, errorThrown)
+//                    {
+//                        console.log("error");
+//                    }
+//                });
+
+        /////
+    });
     $(".search-filter").on("change", function () {
         var below_range = $('#below_range').val();
         var up_range = $('#up_range').val();
         var location = $('#location').val();
         var category = $('#category').val();
         var search_text = $('#search_text').val();
+        var friend = $('#friends').val();
         console.log(location);
         $.ajax(
                 {
                     url: base_url + "advertisement/search",
                     type: "get",
-                    data: {below_range: below_range, up_range: up_range, category: category, location: location, search_text: search_text},
+                    data: {below_range: below_range, up_range: up_range, category: category, location: location, search_text: search_text,friend_id:friend},
                     success: function (data, textStatus, jqXHR)
                     {
                         var result = JSON.parse(data);

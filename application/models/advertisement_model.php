@@ -61,6 +61,7 @@ class Advertisement_model extends MY_Model {
         $category = $this->input->get('category');
         $location = $this->input->get('location');
         $search_text = $this->input->get('search_text');
+        $friend_id= $this->input->get('friend_id');
         //print_r($_GET);die;
         $data['ads'] = array();
         $where = array();
@@ -83,6 +84,10 @@ class Advertisement_model extends MY_Model {
         if (!empty($search_text)) {
             $where['title like '] = '%' . $search_text . '%';
             $data['search_text'] = $search_text;
+        }
+        if (!empty($friend_id)) {
+            $where['user_id'] = $friend_id;
+            $data['user_id'] = $friend_id;
         }
         if (!empty($where)) {
             $where["status"] = 1;
