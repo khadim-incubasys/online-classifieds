@@ -31,7 +31,7 @@ class User_model extends MY_Model {
                     "password" => md5($password),
                     "email" => $email,
                     "country" => $this->input->post('country'),
-                    "image_url" => $this->input->post('image1'),
+                    "image_url" => base_url() . UPLOAD_PATH . $this->input->post('image1'),
                     "city" => $this->input->post('city'),
                     "address" => $this->input->post('address'),
                     "phone" => $this->input->post('phone')
@@ -42,7 +42,8 @@ class User_model extends MY_Model {
                     $email_data['token'] = $token;
                     $email_data['password'] = $password;
                     email_registration($email_data);
-                    return array("result" => TRUE, "message" => "Registered Successfully");
+                    //return array("result" => TRUE, "message" => "Registered Successfully");
+                    return $this->user_login($email, $password);
                 } else {
                     return array("result" => FALSE, "message" => "Something went wrong");
                 }
@@ -109,7 +110,7 @@ class User_model extends MY_Model {
             );
             $image_url = $this->input->post("image1");
             if (!empty($image_url))
-                $update_data['image_url'] = $image_url;
+                $update_data['image_url'] = base_url() . UPLOAD_PATH . $image_url;
             if ($this->update("id", $id, $update_data)) {
                 $this->session->set_flashdata("message", SUCCESS . "Saved Successfully");
                 $user = $this->User_model->get_single("id", $id);
@@ -165,6 +166,54 @@ class User_model extends MY_Model {
             }
         } else {
             $this->session->set_flashdata("message", ERROR . "Old Password is incorrect");
+            return FALSE;
+        }
+    }
+
+    public function social_logon($response) {
+        $email = $response->email;
+        if (!$this->is_already_exist("email", $email)) {
+            $token = md5(uniqid() . microtime() . rand());
+            $password = generatePassword();
+            $insert = array(
+                "name" => $response->displayName,
+                'token' => $token,
+                'status' => 1,
+                "password" => md5($password),
+                "email" => $email,
+                "country" => $response->country,
+                "image_url" => $response->photoURL,
+                "city" => $response->region,
+                "address" => $response->address,
+                "phone" => $response->phone
+            );
+            if ($this->User_model->create($insert)) {
+                $email_data['email'] = $email;
+                $email_data['name'] = $response->displayName;
+                $email_data['token'] = $token;
+                $email_data['password'] = $password;
+                email_registration($email_data);
+                $is_logged_in = $this->user_login($email, $password);
+                if (!empty($is_logged_in) && $is_logged_in->result == TRUE) {
+                    return TRUE;
+                } else {
+                    $this->session->set_flashdata("message", ERROR . "Registered, But not logged In");
+                    return FALSE;
+                }
+            } else {
+                $this->session->set_flashdata("message", ERROR . "Something went wrong");
+                return FALSE;
+            }
+        } else {
+            $user = $this->User_model->get_single("email", $email);
+            if (!empty($user)) {
+                if ($user->status == 1) {
+                    $this->session->set_userdata("user", $user);
+                    $this->session->set_userdata('logged_in', TRUE);
+                    return TRUE;
+                }
+            }
+            $this->session->set_flashdata("message", ERROR . "The Email field must contain a unique value.");
             return FALSE;
         }
     }
