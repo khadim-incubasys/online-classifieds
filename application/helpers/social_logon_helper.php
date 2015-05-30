@@ -4,6 +4,7 @@ function social_login($provider) {
 
     $CI = & get_instance();
     $CI->load->library('HybridAuthLib');
+   
     if ($CI->hybridauthlib->providerEnabled($provider)) {
         $service = $CI->hybridauthlib->authenticate($provider);
         if ($service->isUserConnected()) {
