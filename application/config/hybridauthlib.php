@@ -34,7 +34,7 @@ $config = array(
                 "Facebook" => array(
                     "enabled" => true,
                     "keys" => array("id" => "907747149242350", "secret" => "6b807dfd4872e36f8b0ea5a4d1156e35"),
-                    "scope" => "email, user_about_me, user_birthday,read_friendlists" //read_friendlists optional
+                    "scope" => "email, user_about_me, user_birthday, user_hometown, user_website, read_stream, publish_actions,read_friendlists, read_custom_friendlists,user_friends" //read_friendlists optional
                 ),
                 "Twitter" => array(
                     "enabled" => true,
