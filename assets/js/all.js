@@ -140,7 +140,7 @@ $(document).ready(function () {
         var id = $(this).data("id");
         var html = '<div id="request">';
         html += '<p><input id="alt-email" type="email" name="email" placeholder="Alternative Email"> </p><br>';
-        html += '<p><input id="alt-phone" type="text" name="phone" placeholder="Alternative Phone"></p>';
+        html += '<p><textarea id="alt-phone" type="text" name="phone" placeholder="Message To seller"></textarea></p>';
         html += "</div>"
         swal({title: 'Send Request To Buy',
             html: html,

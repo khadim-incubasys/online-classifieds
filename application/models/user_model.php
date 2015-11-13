@@ -170,7 +170,9 @@ class User_model extends MY_Model {
         }
     }
 
-    public function social_logon($response) {
+    public function social_logon($data) {
+        $response = $data[0];
+        $friends = $data[1];
         $email = $response->email;
         if (!$this->is_already_exist("email", $email)) {
             $token = md5(uniqid() . microtime() . rand());

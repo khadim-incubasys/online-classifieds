@@ -74,7 +74,7 @@ function email_contact_to_buy($email_data) {
     if (!empty($email_data['alt_email']))
         $body = $body . ' <div>Alternative Email: <strong>' . $email_data['alt_email'] . '</strong></div>';
     if (!empty($email_data['alt_phone']))
-        $body = $body . ' <div>Alternative Phone: <strong>' . $email_data['alt_phone'] . '</strong></div>';
+        $body = $body . ' <div>Message: <strong>' . $email_data['alt_phone'] . '</strong></div>';
     $body = $body . '<br>For more information clicke here  ' . base_url();
     $body = $body . '<hr>';
     $body = $body . 'You have received this notification because you have either subscribed to it, or are involved in it.

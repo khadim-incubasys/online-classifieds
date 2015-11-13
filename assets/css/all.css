@@ -16,6 +16,9 @@ body{
 #alt-email,#alt-phone{
     font-size: 23px;
 }
+#alt-phone{
+    height: 100px;
+}
 .header{
     //  background-color:  #B8A7C0;  
     margin-bottom:0px;
